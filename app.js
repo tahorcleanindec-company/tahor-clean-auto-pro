@@ -84,9 +84,9 @@ const products = [
     category: "Lavado",
     images: [
       
-      "img/36003 SHAMPOO PARA CARRO GLBR.png",
-      "img/SHAMPOO PARA CARRO 1L.png",
-      "img/SHAMPOO PARA AUTO 20L.png",
+      "img/36003 SHAMPOO PARA CARRO GLBR.webp",
+      "img/SHAMPOO PARA CARRO 1L.webp",
+      "img/SHAMPOO PARA AUTO 20L.webp",
       
     ],
     video: " ",
@@ -127,8 +127,8 @@ const products = [
     description: "Shampoo automotriz con cera incorporada que limpia profundamente mientras deja una capa protectora brillante sobre la pintura. Ideal para mantener el vehículo limpio y con acabado profesional en cada lavado. pH 7.5",
     category: "Lavado",
     images: [
-      "img/44303 SHAMPOO CON CERA GLBR.png",
-      "img/SHAMPO CON CERA 20L.png"
+      "img/44303 SHAMPOO CON CERA GLBR.webp",
+      "img/SHAMPO CON CERA 20L.webp"
     ],
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Limpieza y protección en un solo paso ", "Aporta brillo inmediato tipo encerado ", "No daña pintura ni plásticos ", "Facilita el secado ", "Ideal para uso frecuente"],
@@ -188,9 +188,9 @@ const products = [
      description: "Desengrasante alcalino de alto rendimiento diseñado para eliminar grasa pesada, aceites y suciedad extrema en motores, chasis y maquinaria.",
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/LAVACLEAN 1L.png",
-       "img/LAVACLEAN GLBR.pngx",
-       "img/LAVACLEAN 20L.png",
+       "img/LAVACLEAN 1L.webp",
+       "img/LAVACLEAN GLBR.webp",
+       "img/LAVACLEAN 20L.webp",
      ],
      video: "url-video-youtube",
      features: ["Máxima potencia desengrasante ", "Ideal para motores y talleres ", "Acción rápida  ", "Reduce tiempo de limpieza ", "Uso industrial y automotriz ", ],
@@ -211,8 +211,8 @@ const products = [
      description: "Producto alcalino fuerte para limpieza de suciedad extrema en vehículos y maquinaria.",
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-      "img/DETER100 INDUSTRIAL GLC.jpg",
-      "img/DETER100 INDUSTRIAL 20L.png",
+      "img/DETER100 INDUSTRIAL GLC.webp",
+      "img/DETER100 INDUSTRIAL 20L.webp",
        
      ],
      video: "url-video-youtube",
@@ -275,9 +275,9 @@ const products = [
      description: "Elimina óxido y manchas metálicas devolviendo el aspecto original.",
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/DESOXIDANTE 1L.png",
-       "img/DESOXIDANTE GL.png",
-       "img/DESOXIDANTE 20L.jpg"
+       "img/DESOXIDANTE 1L.webp",
+       "img/DESOXIDANTE GL.webp",
+       "img/DESOXIDANTE 20L.webp"
      ],
      video: "url-video-youtube",
      features: ["Remueve óxido ", "Recupera superficies ", "Acción rápida  ", "Ideal para metales ", "Mejora estética ", ],
@@ -321,9 +321,9 @@ const products = [
      description: "Remueve grasas, aceites y residuos difíciles que no salen con detergentes convencionales.",
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/TAHOX SOLVENT 1L.png",
-       "img/TAHOX SOLVENT GLC.jpg",
-       "img/TAHOX SOLVENT 20L.png",
+       "img/TAHOX SOLVENT 1L.webp",
+       "img/TAHOX SOLVENT GLC.webp",
+       "img/TAHOX SOLVENT 20L.webp",
      ],
      video: "url-video-youtube",
      features: ["Disuelve grasa pesada", "Limpieza profunda ", "Uso especializado ", "Acción rápida  ", ],
@@ -388,8 +388,8 @@ const products = [
      description: "Detergente biodegradable para limpieza interior segura.",
      category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-      "img/48906 DETERBIO 100ML.png",
-       "img/47623 DETERBIO GBR.png",
+      "img/48906 DETERBIO 100ML.webp",
+       "img/47623 DETERBIO GBR.webp",
      ],
      video: "url-video-youtube",
      features: ["Biodegradable ", "Seguro para interiores  ", "Limpieza eficiente ", "Uso frecuente ", "Menor impacto ambiental ", ],
@@ -434,9 +434,9 @@ const products = [
      description: "Limpia y desinfecta el interior del vehículo eliminando microorganismos.",
      category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/DIOXIGENT MULTIUSOS 1L.jpg",
-       "img/DIOXIGET MULTIUSOS GLC.png",
-       "img/DIOXIGENT MULTIUSOS 20L.jpg",
+       "img/DIOXIGENT MULTIUSOS 1L.webp",
+       "img/DIOXIGET MULTIUSOS GLC.webp",
+       "img/DIOXIGENT MULTIUSOS 20L.webp",
      ],
      video: "url-video-youtube",
      features: ["Acción desinfectante ", "Elimina olores ", "Seguro para interiores ", "Uso diario ", "Mejora higiene ", ],
@@ -458,9 +458,9 @@ const products = [
      description: "Devuelve el color negro intenso a las llantas.",
      category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/BRILLANTEX 1L.png",
-       "img/BRILLANTEX GLBR.jpg",
-       "img/BRILLANTEX CANECA.png"
+       "img/BRILLANTEX 1L.webp",
+       "img/BRILLANTEX GLBR.webp",
+       "img/BRILLANTEX CANECA.webp"
      ],
      video: "url-video-youtube",
      features: ["Brillo duradero ", "Protección ", "Mejora apariencia ", "Fácil aplicación ", "Resultado profesional", ],
@@ -526,9 +526,9 @@ const products = [
      description: "Mejora la visibilidad al repeler agua.",
      category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/40484 DUCHA GRAFITADA 1000ML.png",
-       "img/52386 DUCHA GRAFITADA GLBR.png",
-       "img/DUCHA GRAFITADA 20L.png",
+       "img/40484 DUCHA GRAFITADA 1000ML.webp",
+       "img/52386 DUCHA GRAFITADA GLBR.webp",
+       "img/DUCHA GRAFITADA 20L.webp",
      ],
      video: "url-video-youtube",
      features: ["Efecto repelente ", "Mejora seguridad ", "Aplicación sencilla ", "Duración prolongada ", "Ideal para lluvia "],
@@ -551,9 +551,9 @@ const products = [
      category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
       
-       "img/PROTECTOR TC GLBR.png",
-       "img/46444 PROTECTOR TC 1000ML.png",
-       "img/PROTECTOR TC CANECA.png",
+       "img/PROTECTOR TC GLBR.webp",
+       "img/46444 PROTECTOR TC 1000ML.webp",
+       "img/PROTECTOR TC CANECA.webp",
      ],
      video: "url-video-youtube",
      features: ["Protege superficies contra desgaste y suciedad. ", "Mejora durabilidad ", "Reduce suciedad ", "Uso versátil ", "Fácil aplicación  "],
@@ -620,9 +620,9 @@ const products = [
      description: "Fragancia duaradera para el interior del vehículo.",
      category: "Ambientación",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/Splash Esencia 1L.png",
-       "img/SPLASH ESENCIA GALÓN.png",
-       "img/SPLASH ESENCIA CANECA.png"
+       "img/Splash Esencia 1L.webp",
+       "img/SPLASH ESENCIA GALÓN.webp",
+       "img/SPLASH ESENCIA CANECA.webp"
      ],
      video: "url-video-youtube",
      features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
