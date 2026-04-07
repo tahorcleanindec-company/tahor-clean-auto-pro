@@ -575,8 +575,9 @@ const products = [
      description: "Brillo general para exteriores del vehículo.",
      category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/BRILLANTEX FULL 1L.webp",
+       "img/BRILLANTEX GLBRR.webp",
+       "img/BRILLANTEX FULL CANECA.webp",
      ],
      video: "url-video-youtube",
      features: ["Acabado uniforme  ", "Mejora estética ", "Protección ligera ", "Fácil uso ", "Versátil"],
