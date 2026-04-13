@@ -270,7 +270,7 @@ const products = [
      category: "Limpieza Interior",          
      images: [
        "img/IN-TAHOR 1L.webp",
-       "img/IN-TAHOR GLC.webp",
+       "img/IN-TAHOR 20L.webp",
        "img/IN-TAHOR CANECA 20L.webp"
      ],
      video: "url-video-youtube",
