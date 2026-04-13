@@ -640,6 +640,29 @@ const products = [
      rating: 4.5,
      reviews: 0
    },
+   {
+     id: 27,                           // Número único (incrementa el último id)
+     name: "Cera autobrillante 1,2,3",
+     description: "Compuesto de corte diseñado para eliminar rayones leves, marcas, oxidación y defectos en la pintura. Prepara la superficie para procesos de pulido y acabado, logrando una base uniforme.",
+     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     images: [
+       "img/CERA 123 1L.webp",
+       "img/CERA 123 GLBR.webp",
+       "img/CERA 123 CANECA.webp"
+     ],
+     video: "url-video-youtube",
+     features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
+     sizes: [
+       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
+       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
+       // Agrega solo las presentaciones que tenga el producto
+       { name: "Botella 1L", code: "44490", price: 3.07, icon: "🍶", iva: 0.15 },
+       { name: "Galon 4L", code: "51946", price: 10.35, icon: "🫙", iva: 0.15 },
+       { name: "Caneca 20L", code: "54607", price: 39.25, icon: "🛢️", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
    
 ];
 
