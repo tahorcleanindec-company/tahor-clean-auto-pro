@@ -345,7 +345,7 @@ const products = [
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
        "url-imagen-1",
-       "url-imagen-2"
+       "img/LIMPIADOR DE RINES Y AROS GLBR.webp"
      ],
      video: "url-video-youtube",
      features: ["Limpieza profunda ", "Recupera brillo  ", "Seguro para rines  ", "Fácil aplicación ", "Resultados rápidos ", ],
