@@ -297,7 +297,7 @@ const products = [
      description: "Elimina sarro, minerales y residuos incrustados en superficies del vehículo.",
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "img/TAHOX100 1L.webp",
+       "img/TAHOX1OO 1L.webp",
        "img/TAHOX100 GLC.webp",
        "img/TAHOX100 20L.webp",
      ],
