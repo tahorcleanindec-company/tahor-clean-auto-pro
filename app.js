@@ -397,7 +397,7 @@ const products = [
      description: "Recupera el color original de plásticos deteriorados.",
      category: "Acabado y protección",           
      images: [
-       "img/PROTECTOR DE PLASTICOS 250ML.webp",
+       "img/PROTECTOR DE PLASTICOS 210ML.webp",
        "img/PROTECTOR DE PLASTICOS 500ML.webp",
        "img/PROTECTOR DE PLASTICOS 1L.webp",
        "img/PROTECTOR DE PLASTICOS GLBR.webp"
