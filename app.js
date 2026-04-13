@@ -24,7 +24,7 @@ const products = [
     rating: 4.8,
     reviews: 124
   },
-  { 
+  {
     id: 2,
     name: "Shampoo EC",
     description: "Shampoo automotriz formulado para limpieza diaria, elimina suciedad ligera sin afectar pintura ni acabados. pH 7.0",
