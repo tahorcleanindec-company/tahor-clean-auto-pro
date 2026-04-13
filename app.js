@@ -168,6 +168,7 @@ const products = [
      category: "Lavado",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
        "img/54028 TAHOR WASH R GLBR.webp",
+       "img/TAHOR WAS CANECA.webp"
      ],
      video: "url-video-youtube",
      features: ["Alta generación de espuma ", "Sin aroma (uso técnico) ", "No deja residuos,  Seguro para superficies automotrices ", "Alto rendimiento (rinde más por dilución) ", "Uso profesional y doméstico ", "Compatible con equipos de lavado"],
