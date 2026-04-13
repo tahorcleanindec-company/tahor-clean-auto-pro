@@ -31,7 +31,6 @@ const products = [
     category: "Lavado",
     images: [
       "SHAMPOO PARA AUTO ECONOMICO 20L.webp",
-      "SHAMPOO PARA AUTO ECONOMICO 20L.webp",
     ],
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
