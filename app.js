@@ -563,6 +563,23 @@ const products = [
      rating: 4.5,
      reviews: 0
    },
+   {
+     id: 29,                           
+     name: "Franela",
+     description: "",
+     category: "Accesorios",           
+     images: [
+       "img/FRANELA.webp",
+     ],
+     video: "url-video-youtube",
+     features: ["", "", "",],
+     sizes: [
+       
+       { name: "Franela", code: "", price: 0, icon: "▩", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
    
 ];
 

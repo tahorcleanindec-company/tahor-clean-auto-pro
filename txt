@@ -2,52 +2,42 @@
 & "C:\Program Files\Git\cmd\git.exe" commit -m "Actualizar estilos y scripts" ; 
 & "C:\Program Files\Git\cmd\git.exe" push origin main
 
-🗣️ Conversación
-
 Pessoa A:
-Olá, tudo bem?
-→ O-lá, tu-du bẽi?
+Oi, tudo bem? O que você está fazendo?
+→ Oi, tu-du bẽi? U ki vo-sé es-tá fa-zẽn-du?
 
 Pessoa B:
-Tudo bem! E você?
-→ Tu-du bẽi! I vo-sé?
+Oi! Estou em casa, descansando. E você?
+→ Oi! Es-tô ẽi cá-za, des-can-sãn-du. I vo-sé?
 
 Pessoa A:
-Estou trabalhando agora. E você?
-→ Es-tô tra-ba-lyãn-du a-gó-ra. I vo-sé?
+Estou saindo do trabalho agora.
+→ Es-tô sa-ín-du du tra-ba-lyo a-gó-ra
 
 Pessoa B:
-Também estou trabalhando.
-→ Tam-bẽi es-tô tra-ba-lyãn-du
+Nossa, deve estar cansado.
+→ Nó-sa, dé-vi es-tá can-sá-du
 
 Pessoa A:
-Você trabalha com o quê?
-→ Vo-sé tra-ba-lya con u ké?
+Um pouco, mas tudo bem. Vou comer algo depois.
+→ Um póu-cu, mas tu-du bẽi. Vô co-mêr al-gu de-póis
 
 Pessoa B:
-Sou programador. Trabalho com tecnologia.
-→ Sô pro-gra-ma-dór. Tra-ba-lyo con tec-no-lo-gía
+Boa ideia! O que você vai comer?
+→ Bóa i-dei-a! U ki vo-sé vai co-mêr?
 
 Pessoa A:
-Que legal! Como estão as coisas na universidade?
-→ Ki le-gau! Kó-mu es-tãu as cói-zas na u-ni-ver-si-dá-yi?
+Acho que vou comer arroz com frango.
+→ A-sho ki vô co-mêr a-róz con fran-gu
 
 Pessoa B:
-Estão bem. Estou aprendendo bastante.
-→ Es-tãu bẽi. Es-tô a-pren-dẽn-du bas-tãn-ti
+Que delícia! Eu já comi, agora só vou relaxar.
+→ Ki de-lí-sia! Eu yá co-mí, a-gó-ra só vô re-la-shár
 
 Pessoa A:
-Isso é ótimo. Você gosta do curso?
-→ I-su é ó-ti-mu. Vo-sé gó-sta du kúr-su?
+Então descansa bem. Amanhã a gente fala.
+→ En-tãu des-can-sa bẽi. A-ma-ñã a yen-ti fá-la
 
 Pessoa B:
-Sim, gosto muito. É difícil, mas interessante.
-→ Sĩ, gó-stu mui-tu. É di-fi-siu, mas in-te-re-sãn-ti
-
-Pessoa A:
-Boa sorte então!
-→ Bóa sór-ti en-tãu!
-
-Pessoa B:
-Obrigado! Até mais!
-→ O-bri-gá-du! A-té mái-s!
+Tá bom! Boa noite!
+→ Tá bõ! Bóa nói-ti!
