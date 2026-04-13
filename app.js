@@ -601,20 +601,18 @@ const products = [
      id: 31,                           
      name: "Paño de microfibra",
      description: "",
-     category: "Accesorios",           
+     category: "Accesorios",   
      images: [
        "img/PAÑO MICROFIBRA VERDE.webp",
      ],
      video: "url-video-youtube",
      features: ["", "", "",],
      sizes: [
-       
        { name: "Paño de microfibra", code: "", price: 0, icon: "▩", iva: 0.15 }
      ],
      rating: 4.5,
      reviews: 0
    },
-   
 ];
 
 /* ============================================================================
