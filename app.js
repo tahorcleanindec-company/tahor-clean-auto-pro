@@ -298,8 +298,8 @@ const products = [
      category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
        "img/TAHOX100 1L.webp",
-       "img/TAHOX100 GLc.webp",
-       "img/TAHOX100 20L.webp"
+       "img/TAHOX100 GLC.webp",
+       "img/TAHOX100 20L.webp",
      ],
      video: "url-video-youtube",
      features: ["Elimina incrustaciones ", "Acción ácida controlada  ", "Ideal para lavado técnico   ", "Resultados visibles ", "Uso profesional", ],
