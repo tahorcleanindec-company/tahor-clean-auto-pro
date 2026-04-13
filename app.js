@@ -542,6 +542,27 @@ const products = [
      rating: 4.5,
      reviews: 0
    },
+   {
+     id: 28,                           
+     name: "EXTRACTOR",
+     description: "Xtractor elimina suciedad y manchas difíciles en minutos, sin saturar la tela ni dejar residuos.",
+     category: "Limpieza Interior",           
+     images: [
+       "img/EXTRACTOR 1L.webp",
+       "img/EXTRACTOR GLBR.webp",
+       "img/EXTRACTOR CANECA.webp"
+     ],
+     video: "url-video-youtube",
+     features: ["Ideal para detailing automotriz", "deja la tapicería limpia", "resca y lista para usar",],
+     sizes: [
+       
+       { name: "Botella 1L", code: "59306", price: 1.75, icon: "🍶", iva: 0.15 },
+       { name: "Galon 4L", code: "55569", price: 4.99, icon: "🫙", iva: 0.15 },
+       { name: "Caneca 20L", code: "62286", price: 19.9, icon: "🛢️", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
    
 ];
 
@@ -1246,3 +1267,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   renderCart();
 });
+

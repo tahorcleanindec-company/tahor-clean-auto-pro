@@ -1,3 +1,53 @@
 & "C:\Program Files\Git\cmd\git.exe" add . ; 
 & "C:\Program Files\Git\cmd\git.exe" commit -m "Actualizar estilos y scripts" ; 
 & "C:\Program Files\Git\cmd\git.exe" push origin main
+
+🗣️ Conversación
+
+Pessoa A:
+Olá, tudo bem?
+→ O-lá, tu-du bẽi?
+
+Pessoa B:
+Tudo bem! E você?
+→ Tu-du bẽi! I vo-sé?
+
+Pessoa A:
+Estou trabalhando agora. E você?
+→ Es-tô tra-ba-lyãn-du a-gó-ra. I vo-sé?
+
+Pessoa B:
+Também estou trabalhando.
+→ Tam-bẽi es-tô tra-ba-lyãn-du
+
+Pessoa A:
+Você trabalha com o quê?
+→ Vo-sé tra-ba-lya con u ké?
+
+Pessoa B:
+Sou programador. Trabalho com tecnologia.
+→ Sô pro-gra-ma-dór. Tra-ba-lyo con tec-no-lo-gía
+
+Pessoa A:
+Que legal! Como estão as coisas na universidade?
+→ Ki le-gau! Kó-mu es-tãu as cói-zas na u-ni-ver-si-dá-yi?
+
+Pessoa B:
+Estão bem. Estou aprendendo bastante.
+→ Es-tãu bẽi. Es-tô a-pren-dẽn-du bas-tãn-ti
+
+Pessoa A:
+Isso é ótimo. Você gosta do curso?
+→ I-su é ó-ti-mu. Vo-sé gó-sta du kúr-su?
+
+Pessoa B:
+Sim, gosto muito. É difícil, mas interessante.
+→ Sĩ, gó-stu mui-tu. É di-fi-siu, mas in-te-re-sãn-ti
+
+Pessoa A:
+Boa sorte então!
+→ Bóa sór-ti en-tãu!
+
+Pessoa B:
+Obrigado! Até mais!
+→ O-bri-gá-du! A-té mái-s!
