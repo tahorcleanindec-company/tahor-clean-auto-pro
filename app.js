@@ -271,7 +271,7 @@ const products = [
      images: [
        "img/IN-TAHOR 1L.webp",
        "img/IN-TAHOR GLC.webp",
-       "img/IN-TAHOR 20L.webp"
+       "img/IN-TAHOR CANECA 20L.webp"
      ],
      video: "url-video-youtube",
      features: ["Limpieza profunda en interiores ", "No mancha ni decolora  ", "Ideal para tapicería  ", "Aroma agradable ", "Uso frecuente", ],
