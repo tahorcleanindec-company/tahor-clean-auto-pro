@@ -148,8 +148,8 @@ const products = [
      description: "Desengrasante de alto rendimiento para eliminar aceites, grasa y suciedad difícil.",
      category: "Limpieza Extrema",           
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/deter1000.webp",
+       "img/deter100.webp"
      ],
      video: "url-video-youtube",
      features: ["Máxima potencia  ", "Ideal para motores y chasis  ", "Reduce esfuerzo  ", "Uso profesional  ", "Alta eficiencia", ],
