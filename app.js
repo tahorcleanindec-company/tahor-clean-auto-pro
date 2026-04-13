@@ -311,8 +311,10 @@ const products = [
      description: "Elimina manchas orgánicas y suciedad en tapicería.",
      category: "Limpieza Interior",           
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/59627 DETEROXI 100ML.webp",
+       "img/59628 DETEROXI GBR.webp",
+       "img/58586 DETEROXI CANECA.webp"
+
      ],
      video: "url-video-youtube",
      features: ["Remueve manchas", "Acción oxigenada", "Ideal para telas  ", "Limpieza profunda ", "Seguro en superficies", ],
