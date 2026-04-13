@@ -580,6 +580,40 @@ const products = [
      rating: 4.5,
      reviews: 0
    },
+   {
+     id: 30,                           
+     name: "Cepillo",
+     description: "",
+     category: "Accesorios",           
+     images: [
+       "img/CEPILLO.webp",
+     ],
+     video: "url-video-youtube",
+     features: ["", "", "",],
+     sizes: [
+       
+       { name: "Cepillo", code: "", price: 0, icon: "▩", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
+   {
+     id: 31,                           
+     name: "Paño de microfibra",
+     description: "",
+     category: "Accesorios",           
+     images: [
+       "img/PAÑO MICROFIBRA VERDE.webp",
+     ],
+     video: "url-video-youtube",
+     features: ["", "", "",],
+     sizes: [
+       
+       { name: "Paño de microfibra", code: "", price: 0, icon: "▩", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
    
 ];
 
