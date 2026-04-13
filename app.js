@@ -1,82 +1,6 @@
-/* ================================
-   TAHOR CLEAN - APP.JS
-   ================================ */
-
-/* ============================================================================
-   CONFIGURACIÓN DEL IVA POR PRESENTACIÓN
-   ============================================================================
-   
-   El IVA se configura por cada tamaño de presentación. 
-   Puedes modificar estos valores según tus necesidades:
-   
-   - iva: Porcentaje de IVA (0.15 = 15%, 0.19 = 19%, 0 = sin IVA)
-   - code: Código ÚNICO para cada presentación (ej: "SHP-001-500" para 500ml)
-   
-   SISTEMA DE CÓDIGOS POR PRESENTACIÓN:
-   Cada presentación (500ml, 1L, Galón, Caneca) tiene su propio código único.
-   Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-   
-   Ejemplos de códigos:
-   - SHP-001-500   = Shampoo #1, presentación 500ml
-   - SHP-001-1000  = Shampoo #1, presentación 1L (1000ml)
-   - SHP-001-4000  = Shampoo #1, presentación Galón (4L = 4000ml)
-   - SHP-001-20000 = Shampoo #1, presentación Caneca (20L = 20000ml)
-   
-   Ejemplo completo:
-   sizes: [
-     { name: "Botella 500ml", code: "SHP-001-500", price: 25000, icon: "🧴", iva: 0.15 },
-     { name: "Botella 1L", code: "SHP-001-1000", price: 40000, icon: "🍶", iva: 0.15 },
-     { name: "Galon 4L", code: "SHP-001-4000", price: 85000, icon: "🫙", iva: 0.15 },
-     { name: "Caneca 20L", code: "SHP-001-20000", price: 350000, icon: "🛢️", iva: 0.15 }
-   ]
-   
-   ============================================================================ */
-
-// IVA por defecto (15%) - Se usa cuando no se especifica IVA en el tamaño
 const IVA_POR_DEFECTO = 0.15; // 15% de IVA
 
-// ============ PRODUCTS DATA ============
-/* 
-   ESTRUCTURA DE CADA PRODUCTO:
-   
-   {
-     id: número único,
-     name: "Nombre del Producto",
-     description: "Descripción del producto",
-     category: "categoria",
-     images: ["url1", "url2"],
-     video: "url-del-video",
-     features: ["caracteristica1", "caracteristica2"],
-     sizes: [
-       { 
-         name: "Botella 500ml",  // Nombre de la presentación
-         code: "XXX-001-500",    // <-- CÓDIGO ÚNICO por presentación
-         price: 25000,           // Precio base (sin IVA)
-         icon: "🧴",             // Icono para mostrar
-         iva: 0.15               // IVA para esta presentación (15%)
-       },
-       // ... más tamaños con sus propios códigos
-     ],
-     rating: 4.8,
-     reviews: 124
-   }
-
-   CÓDIGOS DE LOS ICONOS:
-   - 🧴 = Botella pequeña (500ml)
-   - 🍶 = Botella mediana (1L)
-   - 🫙 = Galón (4L)
-   - 🛢️ = Caneca (20L)
-   
-   IMPORTANTE: Cada presentación tiene su propio "code" para identificarla
-*/
-
 const products = [
-  /* ============================================================================
-     PRODUCTO DE EJEMPLO CON CÓDIGOS POR PRESENTACIÓN
-     ============================================================================
-     Este producto muestra cómo configurar códigos únicos para cada presentación.
-     Cada size tiene su propio "code" que se muestra cuando se selecciona.
-     ============================================================================ */
   {
     id: 1,
     name: "Shampoo FOR CAR",
@@ -92,11 +16,10 @@ const products = [
     video: " ",
     features: ["Buen poder de limpieza", "Mantiene brillo natural ", "Espuma controlada", "No deja residuos", "Alto rendimiento "],
     sizes: [
-      // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-      // Formato: [CATEGORIA]-[NUMERO]-[ML]
-      { name: "Botella 1L", code: "45242", price: 1.74, icon: "🍶", iva: 0.15 },      // Codigo para 1L
-      { name: "Galon 4L", code: "53829", price: 5, icon: "🫙", iva: 0.15 },        // Codigo para Galon
-      { name: "Caneca 20L", code: "36005", price: 19.1, icon: "🛢️", iva: 0.15 }   // Codigo para Caneca
+      
+      { name: "Botella 1L", code: "45242", price: 1.74, icon: "🍶", iva: 0.15 },      
+      { name: "Galon 4L", code: "53829", price: 5, icon: "🫙", iva: 0.15 },       
+      { name: "Caneca 20L", code: "36005", price: 19.1, icon: "🛢️", iva: 0.15 }   
     ],
     rating: 4.8,
     reviews: 124
@@ -134,7 +57,7 @@ const products = [
     features: ["Limpieza y protección en un solo paso ", "Aporta brillo inmediato tipo encerado ", "No daña pintura ni plásticos ", "Facilita el secado ", "Ideal para uso frecuente"],
     sizes: [
       // Codigos
-      { name: "Galon 4L", code: "44303", price: 5.99, icon: "🫙", iva: 0.15 },        // Codigo para Galon
+      { name: "Galon 4L", code: "44303", price: 5.99, icon: "🫙", iva: 0.15 },        
       { name: "Caneca", code: "44868", price: 23.9, icon: "🛢️", iva: 0.15 }
 
     ],
@@ -154,7 +77,7 @@ const products = [
     features: ["Alta acción desengrasante ", "Ideal para vehículos muy sucios ", "Limpieza profunda ", "Reduce esfuerzo ", "Uso profesional "],
     sizes: [
       // Codigos
-      { name: "Galon 4L", code: "53829", price: 4.34, icon: "🫙", iva: 0.15 },        // Codigo para Galon
+      { name: "Galon 4L", code: "53829", price: 4.34, icon: "🫙", iva: 0.15 },        
       { name: "Caneca", code: "36005", price: 18.3, icon: "🛢️", iva: 0.15 }
 
     ],
@@ -162,10 +85,10 @@ const products = [
     reviews: 89
   },
   {
-     id: 5,                           // Número único (incrementa el último id)
+     id: 5,                           
      name: "Tahor Wash R",
      description: "Producto profesional desarrollado para la limpieza, restauración y protección de vehículos. Su formulación permite eliminar suciedad, grasa y contaminantes sin dañar superficies, logrando resultados de alto nivel en menos tiempo, alta espuma. pH 8.5",
-     category: "Lavado",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Lavado",           
      images: [
        "img/54028 TAHOR WASH R GLBR.webp",
        "img/TAHOR WAS CANECA.webp"
@@ -173,9 +96,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Alta generación de espuma ", "Sin aroma (uso técnico) ", "No deja residuos,  Seguro para superficies automotrices ", "Alto rendimiento (rinde más por dilución) ", "Uso profesional y doméstico ", "Compatible con equipos de lavado"],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+      
        { name: "Galon", code: "54028", price: 6.5, icon: "🫙", iva: 0.15 },
        { name: "Caneca ", code: "51187", price: 25.33, icon: "🛢️", iva: 0.15 }
      ],
@@ -183,10 +104,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 6,                           // Número único (incrementa el último id)
+     id: 6,                           
      name: "Lavaclean",
      description: "Desengrasante alcalino de alto rendimiento diseñado para eliminar grasa pesada, aceites y suciedad extrema en motores, chasis y maquinaria.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "img/LAVACLEAN 1L.webp",
        "img/LAVACLEAN GLBR.webp",
@@ -195,9 +116,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Máxima potencia desengrasante ", "Ideal para motores y talleres ", "Acción rápida  ", "Reduce tiempo de limpieza ", "Uso industrial y automotriz ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "55887", price: 1.75, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "55920", price: 4, icon: "🫙", iva: 0.15 },
        { name: "Caneca ", code: "55826", price: 13.1, icon: "🛢️", iva: 0.15 }
@@ -206,10 +125,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 7,                           // Número único (incrementa el último id)
+     id: 7,                           
      name: "Deter 100 Industrial",
      description: "Producto alcalino fuerte para limpieza de suciedad extrema en vehículos y maquinaria.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
       "img/DETER100 INDUSTRIAL GLC.webp",
       "img/DETER100 INDUSTRIAL 20L.webp",
@@ -218,9 +137,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Alto poder alcalino  ", "Limpieza profunda  ", "Uso en talleres  ", "Alto rendimiento  ", "Acción rápida", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Galon", code: "39599", price: 8.03, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20", code: "39601", price: 22.8, icon: "🛢️", iva: 0.15 }
      ],
@@ -228,10 +145,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 8,                           // Número único (incrementa el último id)
+     id: 8,                           
      name: "Deter 100 pro",
      description: "Desengrasante de alto rendimiento para eliminar aceites, grasa y suciedad difícil.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -239,9 +156,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Máxima potencia  ", "Ideal para motores y chasis  ", "Reduce esfuerzo  ", "Uso profesional  ", "Alta eficiencia", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+     
        { name: "Galon", code: "54167", price: 8.69, icon: "🫙", iva: 0.15 },
        { name: "Caneca ", code: "59228", price: 39.2, icon: "🛢️", iva: 0.15 }
      ],
@@ -249,10 +164,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 9,                           // Número único (incrementa el último id)
+     id: 9,                           
      name: "Deter super industrial",
      description: "Formulación de máxima potencia para suciedad extremadamente adherida.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -260,9 +175,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Ultra desengrasante", "Uso industrial", "Limpieza severa ", "Alta concentración  ", "Resultados rápidos ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Galon", code: "65628", price: 13, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "64767", price: 42.6, icon: "🛢️", iva: 0.15 }
      ],
@@ -270,10 +183,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 10,                           // Número único (incrementa el último id)
+     id: 10,                           
      name: "Desoxidante",
      description: "Elimina óxido y manchas metálicas devolviendo el aspecto original.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "img/DESOXIDANTE 1L.webp",
        "img/DESOXIDANTE GL.webp",
@@ -282,9 +195,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Remueve óxido ", "Recupera superficies ", "Acción rápida  ", "Ideal para metales ", "Mejora estética ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+      
        { name: "Botella 1L", code: "35813", price: 2.45, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "35814", price: 6.25, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "35815", price: 22.32, icon: "🛢️", iva: 0.15 }
@@ -293,10 +204,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 11,                           // Número único (incrementa el último id)
+     id: 11,                           
      name: "Tahox 100 desincrustante",
      description: "Elimina sarro, minerales y residuos incrustados en superficies del vehículo.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "img/TAHOX1OO 1L.webp",
        "img/TAHOX100 GLC.webp",
@@ -305,9 +216,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Elimina incrustaciones ", "Acción ácida controlada  ", "Ideal para lavado técnico   ", "Resultados visibles ", "Uso profesional", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "49748", price: 3.91, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "35943", price: 13.5, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "52607", price: 57.1, icon: "🛢️", iva: 0.15 }
@@ -317,10 +226,10 @@ const products = [
    },
    
    {
-     id: 12,                           // Número único (incrementa el último id)
+     id: 12,                           
      name: "Tahox solvent",
      description: "Remueve grasas, aceites y residuos difíciles que no salen con detergentes convencionales.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "img/TAHOX SOLVENT 1L.webp",
        "img/TAHOX SOLVENT GLC.webp",
@@ -329,9 +238,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Disuelve grasa pesada", "Limpieza profunda ", "Uso especializado ", "Acción rápida  ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "54906", price: 6.69, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "55986", price: 25.25, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "56327", price: 100, icon: "🛢️", iva: 0.15 }
@@ -340,10 +247,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 13,                           // Número único (incrementa el último id)
+     id: 13,                           
      name: "Limpiador de Rines",
      description: "Elimina polvo de freno y suciedad adherida en rines.",
-     category: "Limpieza Extrema",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Extrema",           
      images: [
        "url-imagen-1",
        "img/LIMPIADOR DE RINES Y AROS GLBR.webp"
@@ -351,9 +258,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Limpieza profunda ", "Recupera brillo  ", "Seguro para rines  ", "Fácil aplicación ", "Resultados rápidos ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "65726", price: 3.50, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "63367", price: 9.99, icon: "🫙", iva: 0.15 },
      ],
@@ -361,10 +266,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 14,                           // Número único (incrementa el último id)
+     id: 14,                           
      name: "Intahor",
      description: "Limpiador multiusos para interiores de vehículos. Remueve suciedad en tapicería, plásticos y paneles sin dañar superficies.",
-     category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Interior",          
      images: [
        "img/IN-TAHOR 1L.webp",
        "img/IN-TAHOR GLC.webp",
@@ -373,9 +278,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Limpieza profunda en interiores ", "No mancha ni decolora  ", "Ideal para tapicería  ", "Aroma agradable ", "Uso frecuente", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "63429", price: 2.4, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "63428", price: 7.5, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "63386", price: 30.5, icon: "🛢️", iva: 0.15 }
@@ -385,10 +288,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 15,                           // Número único (incrementa el último id)
+     id: 15,                           
      name: "Deter Bio",
      description: "Detergente biodegradable para limpieza interior segura.",
-     category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Interior",           
      images: [
       "img/48906 DETERBIO 100ML.webp",
        "img/47623 DETERBIO GBR.webp",
@@ -396,9 +299,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Biodegradable ", "Seguro para interiores  ", "Limpieza eficiente ", "Uso frecuente ", "Menor impacto ambiental ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+      
        { name: "Botella 1L", code: "48906", price: 2.3, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "47623", price: 6.8, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "47103", price: 32.8, icon: "🛢️", iva: 0.15 }
@@ -408,10 +309,10 @@ const products = [
      reviews: 0
    },
     {
-     id: 16,                           // Número único (incrementa el último id)
+     id: 16,                           
      name: "Detergente Oxigenado",
      description: "Elimina manchas orgánicas y suciedad en tapicería.",
-     category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Interior",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -419,9 +320,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Remueve manchas", "Acción oxigenada", "Ideal para telas  ", "Limpieza profunda ", "Seguro en superficies", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "59627", price: 2.3, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "59628", price: 6.8, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "58586", price: 32.8, icon: "🛢️", iva: 0.15 }
@@ -431,10 +330,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 17,                           // Número único (incrementa el último id)
+     id: 17,                           
      name: "Dioxigen Multiusos",
      description: "Limpia y desinfecta el interior del vehículo eliminando microorganismos.",
-     category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Limpieza Interior",           
      images: [
        "img/DIOXIGENT MULTIUSOS 1L.webp",
        "img/DIOXIGET MULTIUSOS GLC.webp",
@@ -443,9 +342,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Acción desinfectante ", "Elimina olores ", "Seguro para interiores ", "Uso diario ", "Mejora higiene ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+ 
        { name: "Botella 1L", code: "56568", price: 2.18, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "56567", price: 6.95, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "59106", price: 34.7, icon: "🛢️", iva: 0.15 }
@@ -455,10 +352,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 18,                           // Número único (incrementa el último id)
+     id: 18,                           
      name: "Brillantex",
      description: "Devuelve el color negro intenso a las llantas.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
        "img/BRILLANTEX 1L.webp",
        "img/BRILLANTEX GLBR.webp",
@@ -467,9 +364,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Brillo duradero ", "Protección ", "Mejora apariencia ", "Fácil aplicación ", "Resultado profesional", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+      
        { name: "Botella 1L", code: "35742", price: 2.17, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "35744", price: 4.79, icon: "🫙", iva: 0.15 },
        { name: "Caneca", code: "35746", price: 19.99, icon: "🛢️", iva: 0.15 }
@@ -479,10 +374,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 19,                           // Número único (incrementa el último id)
+     id: 19,                          
      name: "Silicon de Motores",
      description: "Protege motores contra polvo y humedad.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -490,9 +385,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Protección prolongada ", "Mejora apariencia ", "Evita acumulación de suciedad ", "Fácil aplicación ", "Uso técnico ", ],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "53848", price: 6, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "53849", price: 25.5, icon: "🫙", iva: 0.15 },
      ],
@@ -500,10 +393,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 20,                           // Número único (incrementa el último id)
+     id: 20,                           
      name: "Restaurador de plastico",
      description: "Recupera el color original de plásticos deteriorados.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -511,9 +404,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Restaura color ", "Protección duradera ", "Mejora apariencia ", "Fácil uso ", "Resultado inmediato "],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 250ml", code: "54088", price: 6.1, icon: "🧴", iva: 0.15 },
        { name: "Botella 500ml", code: "56628", price: 10, icon: "🧴", iva: 0.15 },
        { name: "Botella 1L", code: "55392", price: 17, icon: "🍶", iva: 0.15 },
@@ -523,10 +414,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 21,                           // Número único (incrementa el último id)
+     id: 21,                           
      name: "Lluvia Grafitada",
      description: "Mejora la visibilidad al repeler agua.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
        "img/40484 DUCHA GRAFITADA 1000ML.webp",
        "img/52386 DUCHA GRAFITADA GLBR.webp",
@@ -535,9 +426,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Efecto repelente ", "Mejora seguridad ", "Aplicación sencilla ", "Duración prolongada ", "Ideal para lluvia "],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "40484", price: 3.07, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "52386", price: 10.35, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "53087", price: 34.7, icon: "🛢️", iva: 0.15 }
@@ -547,10 +436,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 22,                           // Número único (incrementa el último id)
+     id: 22,                           
      name: "Protector tc (WD40)",
      description: "Protege superficies contra desgaste y suciedad.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
       
        "img/PROTECTOR TC GLBR.webp",
@@ -560,9 +449,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Protege superficies contra desgaste y suciedad. ", "Mejora durabilidad ", "Reduce suciedad ", "Uso versátil ", "Fácil aplicación  "],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "46444", price: 6, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "46406", price: 22.19, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "60866", price: 107, icon: "🛢️", iva: 0.15 }
@@ -572,10 +459,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 23,                           // Número único (incrementa el último id)
+     id: 23,                           
      name: "Brillantex Full",
      description: "Brillo general para exteriores del vehículo.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",          
      images: [
        "img/BRILLANTEX FULL 1L.webp",
        "img/BRILLANTEX GLBRR.webp",
@@ -584,9 +471,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Acabado uniforme  ", "Mejora estética ", "Protección ligera ", "Fácil uso ", "Versátil"],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+      
        { name: "Botella 1L", code: "65729", price: 3.05, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "65727", price: 7.82, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "65728", price: 25.21, icon: "🛢️", iva: 0.15 }
@@ -596,10 +481,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 24,                           // Número único (incrementa el último id)
+     id: 24,                           
      name: "Ambiental Desinfectante ",
      description: "Aroma con acción desinfectante para el interior del vehículo.",
-     category: "Ambientación",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Ambientación",           
      images: [
        "url-imagen-1",
        "url-imagen-2"
@@ -607,9 +492,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Desinfecta y aromatiza ", "Mejora ambiente ", "Uso frecuente ", "Acción rápida ", "Seguro"],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "65731", price: 2, icon: "🍶", iva: 0.15 },
        { name: "Galon 4L", code: "65732", price: 5.5, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "65733", price: 23, icon: "🛢️", iva: 0.15 }
@@ -618,10 +501,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 25,                           // Número único (incrementa el último id)
+     id: 25,                           
      name: "Splash Esencia",
      description: "Fragancia duaradera para el interior del vehículo.",
-     category: "Ambientación",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Ambientación",           
      images: [
        "img/Splash Esencia 1L.webp",
        "img/SPLASH ESENCIA GALÓN.webp",
@@ -630,9 +513,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "0", price: 0, icon: "🍶", iva: 0.15 },
        { name: "Galon 4L", code: "0", price: 0, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "0", price: 0, icon: "🛢️", iva: 0.15 }
@@ -641,10 +522,10 @@ const products = [
      reviews: 0
    },
    {
-     id: 27,                           // Número único (incrementa el último id)
+     id: 27,                           
      name: "Cera autobrillante 1,2,3",
      description: "Compuesto de corte diseñado para eliminar rayones leves, marcas, oxidación y defectos en la pintura. Prepara la superficie para procesos de pulido y acabado, logrando una base uniforme.",
-     category: "Acabado y protección",           // shampoo, cera, interior, llantas, vidrios, desengrasante
+     category: "Acabado y protección",           
      images: [
        "img/CERA 123 1L.webp",
        "img/CERA 123 GLBR.webp",
@@ -653,9 +534,7 @@ const products = [
      video: "url-video-youtube",
      features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
      sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
+       
        { name: "Botella 1L", code: "44490", price: 3.07, icon: "🍶", iva: 0.15 },
        { name: "Galon 4L", code: "51946", price: 10.35, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "54607", price: 39.25, icon: "🛢️", iva: 0.15 }
@@ -714,7 +593,6 @@ let selectedProduct = null;
 let selectedSize = 0;
 let quantity = 1;
 
-// CAMBIA ESTE NUMERO POR EL TUYO
 const WHATSAPP_NUMBER = '+593958812843';
 
 // ============ DOM ELEMENTS ============
@@ -773,17 +651,7 @@ function getCategoryLabel(category) {
   return labels[category] || category;
 }
 
-/* ============================================================================
-   FUNCIONES PARA CÁLCULO DE IVA
-   ============================================================================
-   
-   Estas funciones calculan el IVA según la configuración de cada producto.
-   El IVA se aplica al precio de cada tamaño y se muestra en el checkout.
-   
-   ============================================================================ */
 
-// Obtiene el porcentaje de IVA para un tamaño específico
-// Si no tiene IVA definido, usa el IVA por defecto (15%)
 function getIvaRate(size) {
   return size.iva !== undefined ? size.iva : IVA_POR_DEFECTO;
 }
@@ -885,7 +753,6 @@ function renderCart() {
       </div>
     `).join('');
     
-    // Mostrar subtotal, IVA y total
     const subtotal = calculateSubtotal();
     const totalIva = calculateTotalIva();
     const total = calculateTotal();
@@ -911,14 +778,13 @@ function renderCart() {
 function addToCart(product, sizeIndex, qty) {
   const size = product.sizes[sizeIndex];
 
-  // Seguridad básica
   if (!size) {
     console.error("Tamaño no encontrado", sizeIndex);
     return;
   }
 
-  const ivaRate = getIvaRate(size); // IVA por presentación
-  const sizeCode = size.code || 'SIN-CODIGO'; // Código único por presentación
+  const ivaRate = getIvaRate(size); 
+  const sizeCode = size.code || 'SIN-CODIGO'; 
 
   const existingIndex = cart.findIndex(
     item => item.productId === product.id && item.sizeIndex === sizeIndex
@@ -929,11 +795,11 @@ function addToCart(product, sizeIndex, qty) {
   } else {
     cart.push({
       productId: product.id,
-      sizeCode: sizeCode,             // 🔥 Código correcto por presentación
+      sizeCode: sizeCode,             
       name: product.name,
       sizeName: size.name,
       sizeIndex: sizeIndex,
-      price: Number(size.price),      // 🔥 IMPORTANTE (evita errores de cálculo)
+      price: Number(size.price),      
       ivaRate: ivaRate,
       quantity: qty,
       image: product.images[0] || ""
@@ -988,7 +854,6 @@ function filterProducts() {
       p.name.toLowerCase().includes(query) ||
       p.description.toLowerCase().includes(query) ||
       p.category.toLowerCase().includes(query) ||
-      // Buscar por código de cualquier presentación
       p.sizes.some(size => size.code && size.code.toLowerCase().includes(query))
     );
   }
@@ -1172,10 +1037,8 @@ function changeImage(index) {
   const mainImageEl = document.getElementById('mainImageEl');
   const mainImage = document.getElementById('mainImage');
   
-  // Remove video if present
   mainImage.innerHTML = `<img src="${selectedProduct.images[index]}" alt="${selectedProduct.name}" id="mainImageEl">`;
   
-  // Update active thumbnail
   document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
     thumb.classList.toggle('active', i === index);
   });
@@ -1209,7 +1072,6 @@ function changeQuantity(delta) {
   quantity = Math.max(1, quantity + delta);
   document.getElementById('modalQuantity').textContent = quantity;
   
-  // Obtener precio con IVA para el tamaño seleccionado
   const currentSize = selectedProduct.sizes[selectedSize];
   const ivaRate = getIvaRate(currentSize);
   const priceWithIva = getPriceWithIva(currentSize.price, ivaRate);
@@ -1306,7 +1168,6 @@ checkoutForm.addEventListener('submit', (e) => {
     notas: formData.get('notas') || 'Sin notas'
   };
   
-  // Calcular totales para el mensaje
   const subtotal = calculateSubtotal();
   const totalIva = calculateTotalIva();
   const total = calculateTotal();
@@ -1326,7 +1187,6 @@ checkoutForm.addEventListener('submit', (e) => {
   cart.forEach(item => {
     const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
     const ivaPercentage = Math.round(item.ivaRate * 100);
-    // Usar el codigo de la presentacion (sizeCode) en el mensaje de WhatsApp
     message += `- [${item.sizeCode}] ${item.name} (${item.sizeName}) x${item.quantity} = ${formatPrice(priceWithIva * item.quantity)} (IVA ${ivaPercentage}% incluido)\n`;
   });
   
