@@ -366,8 +366,9 @@ const products = [
      description: "Limpiador multiusos para interiores de vehículos. Remueve suciedad en tapicería, plásticos y paneles sin dañar superficies.",
      category: "Limpieza Interior",           // shampoo, cera, interior, llantas, vidrios, desengrasante
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/IN-TAHOR 1L.webp",
+       "img/IN-TAHOR GLC.webp",
+       "img/IN-TAHOR 20L.webp"
      ],
      video: "url-video-youtube",
      features: ["Limpieza profunda en interiores ", "No mancha ni decolora  ", "Ideal para tapicería  ", "Aroma agradable ", "Uso frecuente", ],
