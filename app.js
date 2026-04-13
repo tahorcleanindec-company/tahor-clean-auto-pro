@@ -397,10 +397,10 @@ const products = [
      description: "Recupera el color original de plásticos deteriorados.",
      category: "Acabado y protección",           
      images: [
-       "img/PROTECTOR DE PLASTICO 250ML.webp",
-       "img/PROTECTOR DE PLASTICO 500ML.webp",
-       "img/PROTECTOR DE PLASTICO 1L.webp",
-       "img/PROTECTOR DE PLASTICO GLBR.webp"
+       "img/PROTECTOR DE PLASTICOS 250ML.webp",
+       "img/PROTECTOR DE PLASTICOS 500ML.webp",
+       "img/PROTECTOR DE PLASTICOS 1L.webp",
+       "img/PROTECTOR DE PLASTICOS GLBR.webp"
      ],
      video: "url-video-youtube",
      features: ["Restaura color ", "Protección duradera ", "Mejora apariencia ", "Fácil uso ", "Resultado inmediato "],
