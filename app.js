@@ -30,7 +30,7 @@ const products = [
     description: "Shampoo automotriz formulado para limpieza diaria, elimina suciedad ligera sin afectar pintura ni acabados. pH 7.0",
     category: "Lavado",
     images: [
-      "img/SHAMPPO PARA AUTO ECONOMICO 20L.webp",
+      "img/SHAMPOO PARA AUTO ECONOMICO 20L.webp",
     ],
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
