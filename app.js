@@ -35,7 +35,6 @@ const products = [
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
     sizes: [
-      // Codigos para Cera Liquida Protectora
       { name: "Caneca 20", code: "63506", price: 15, icon: "🛢️", iva: 0.15 },
       { name: "Caneca 28", code: "63226", price: 19, icon: "🛢️", iva: 0.15 }
 
