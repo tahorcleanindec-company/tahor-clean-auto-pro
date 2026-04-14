@@ -490,7 +490,7 @@ const products = [
      images: [
        "img/AMBIENTAL DESINFECTANTE SEGURICAR AIR 1L.webp",
        "img/AMBIENTAL DESINFECTANTE SEGURICAR AIR GLBR.webp",
-       "img/AMBIENTAL DESINFECTANTE SEGURICAR AIRCANECA.webp"
+       "img/AMBIENTAL DESINFECTANTE SEGURICAR AIR CANECA.webp"
      ],
      video: "url-video-youtube",
      features: ["Desinfecta y aromatiza ", "Mejora ambiente ", "Uso frecuente ", "Acción rápida ", "Seguro"],
