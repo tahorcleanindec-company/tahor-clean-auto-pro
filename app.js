@@ -68,8 +68,9 @@ const products = [
     description: "Shampoo desengrasante de alta potencia diseñado para eliminar grasa, barro y suciedad acumulada en vehículos. Ideal para lavados intensivos y vehículos con alta exposición. pH 10",
     category: "Lavado",
     images: [
-      "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop"
+      "img/DETER100 PLUS GLB.webp",
+      "img/DETER100 PLUS CANECA.webp",
+
     ],
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Alta acción desengrasante ", "Ideal para vehículos muy sucios ", "Limpieza profunda ", "Reduce esfuerzo ", "Uso profesional "],
