@@ -167,8 +167,8 @@ const products = [
      description: "Formulación de máxima potencia para suciedad extremadamente adherida.",
      category: "Limpieza Extrema",           
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/DETER 100 SUPER INDUSTRIAL GLN.webp",
+       "img/DETER 100 SUPER INDUSTRIAL.webp"
      ],
      video: "url-video-youtube",
      features: ["Ultra desengrasante", "Uso industrial", "Limpieza severa ", "Alta concentración  ", "Resultados rápidos ", ],
