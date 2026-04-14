@@ -250,7 +250,7 @@ const products = [
      description: "Elimina polvo de freno y suciedad adherida en rines.",
      category: "Limpieza Extrema",           
      images: [
-       "url-imagen-1",
+       "img/LIMPIADOR DE RINES.webp",
        "img/LIMPIADOR DE RINES Y AROS GLBR.webp"
      ],
      video: "url-video-youtube",
