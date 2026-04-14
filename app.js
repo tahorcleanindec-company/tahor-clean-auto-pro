@@ -379,8 +379,8 @@ const products = [
      description: "Protege motores contra polvo y humedad.",
      category: "Acabado y protección",           
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/Silicon de Motores ca.webp",
+       "img/Silicon de Motores ga.webp"
      ],
      video: "url-video-youtube",
      features: ["Protección prolongada ", "Mejora apariencia ", "Evita acumulación de suciedad ", "Fácil aplicación ", "Uso técnico ", ],
