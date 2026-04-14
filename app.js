@@ -488,8 +488,9 @@ const products = [
      description: "Aroma con acción desinfectante para el interior del vehículo.",
      category: "Ambientación",           
      images: [
-       "url-imagen-1",
-       "url-imagen-2"
+       "img/AMBIENTAL DESINFECTANTE SEGURICAR AIR 1L.webp",
+       "img/AMBIENTAL DESINFECTANTE SEGURICAR AIR GLBR.webp",
+       "img/AMBIENTAL DESINFECTANTE SEGURICAR AIRCANECA.webp"
      ],
      video: "url-video-youtube",
      features: ["Desinfecta y aromatiza ", "Mejora ambiente ", "Uso frecuente ", "Acción rápida ", "Seguro"],
