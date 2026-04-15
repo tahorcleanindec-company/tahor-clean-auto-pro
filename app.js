@@ -617,6 +617,25 @@ const products = [
      rating: 4.5,
      reviews: 0
    }, 
+   {
+     id: 19,                          
+     name: "Silicon de T7",
+     description: "Protege motores contra polvo y humedad.",
+     category: "Acabado y protección",           
+     images: [
+       "img/Silicon T7 gl.webp",
+       "img/Silicon T7.webp"
+     ],
+     video: "url-video-youtube",
+     features: ["Protección prolongada ", "Mejora apariencia ", "Evita acumulación de suciedad ", "Fácil aplicación ", "Uso técnico ", ],
+     sizes: [
+       
+       { name: "Botella 1L", code: "", price: 0, icon: "🍶", iva: 0.15 },
+       { name: "Galon", code: "", price: 0, icon: "🫙", iva: 0.15 },
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
    
 ];
 
