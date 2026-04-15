@@ -567,22 +567,22 @@ const products = [
      reviews: 0
    },
    {
-     id: 29,                           
-     name: "Franela",
+     id: 31,                           
+     name: "Paño de microfibra",
      description: "",
-     category: "Accesorios",           
+     category: "Accesorios",   
      images: [
-       "img/FRANELA.webp",
+       "img/PAÑO MICROFIBRA VERDE.webp",
      ],
      video: "url-video-youtube",
      features: ["", "", "",],
      sizes: [
-       
-       { name: "Franela", code: "", price: 0, icon: "▩", iva: 0.15 }
+       { name: "Paño de microfibra", code: "", price: 0, icon: "▩", iva: 0.15 }
      ],
      rating: 4.5,
      reviews: 0
    },
+   
    {
      id: 30,                           
      name: "Cepillo",
@@ -601,21 +601,23 @@ const products = [
      reviews: 0
    },
    {
-     id: 31,                           
-     name: "Paño de microfibra",
+     id: 29,                           
+     name: "Franela",
      description: "",
-     category: "Accesorios",   
+     category: "Accesorios",           
      images: [
-       "img/PAÑO MICROFIBRA VERDE.webp",
+       "img/FRANELA.webp",
      ],
      video: "url-video-youtube",
      features: ["", "", "",],
      sizes: [
-       { name: "Paño de microfibra", code: "", price: 0, icon: "▩", iva: 0.15 }
+       
+       { name: "Franela", code: "", price: 0, icon: "▩", iva: 0.15 }
      ],
      rating: 4.5,
      reviews: 0
    },
+   
 ];
 
 /* ============================================================================
