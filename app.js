@@ -1,4 +1,4 @@
-const IVA_POR_DEFECTO = 0.15; // 15% de IVA
+const IVA_POR_DEFECTO = 0.15; 
 
 const products = [
   {
@@ -32,7 +32,7 @@ const products = [
     images: [
       "img/SHAMPOO PARA AUTO ECONOMICO 20L.webp",
     ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "",
     features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
     sizes: [
       { name: "Caneca 20", code: "63506", price: 15, icon: "🛢️", iva: 0.15 },
@@ -621,47 +621,7 @@ const products = [
    
 ];
 
-/* ============================================================================
-   PLANTILLA PARA AGREGAR NUEVOS PRODUCTOS CON CÓDIGOS POR PRESENTACIÓN
-   ============================================================================
-   
-   Copia esta plantilla y pégala dentro del array "products" para agregar 
-   un nuevo producto. Modifica los valores según corresponda:
-   
-   IMPORTANTE: Cada presentación (500ml, 1L, Galón, Caneca) tiene su propio código.
-   
-   {
-     id: 9,                           // Número único (incrementa el último id)
-     name: "Nombre del Nuevo Producto",
-     description: "Descripción detallada del producto.",
-     category: "categoria",           // shampoo, cera, interior, llantas, vidrios, desengrasante
-     images: [
-       "url-imagen-1",
-       "url-imagen-2"
-     ],
-     video: "url-video-youtube",
-     features: ["Caracteristica 1", "Caracteristica 2", "Caracteristica 3"],
-     sizes: [
-       // CADA PRESENTACIÓN TIENE SU PROPIO CÓDIGO ÚNICO
-       // Formato sugerido: [CATEGORIA]-[NUMERO]-[ML]
-       // Agrega solo las presentaciones que tenga el producto
-       { name: "Botella 500ml", code: "XXX-001-500", price: 0, icon: "🧴", iva: 0.15 },
-       { name: "Botella 1L", code: "XXX-001-1000", price: 0, icon: "🍶", iva: 0.15 },
-       { name: "Galon 4L", code: "XXX-001-4000", price: 0, icon: "🫙", iva: 0.15 },
-       { name: "Caneca 20L", code: "XXX-001-20000", price: 0, icon: "🛢️", iva: 0.15 }
-     ],
-     rating: 4.5,
-     reviews: 0
-   },
-   
-   EJEMPLO DE CÓDIGOS:
-   - Shampoo FOR CAR:     SHP-FOR-500, SHP-FOR-1000, SHP-FOR-4000, SHP-FOR-20000
-   - Lavaclean:           LAV-001-500, LAV-001-1000, LAV-001-4000, LAV-001-20000
-   - Intahor:             INT-001-500, INT-001-1000, INT-001-4000, INT-001-20000
-   
-   ============================================================================ */
 
-// ============ STATE ============
 let cart = [];
 let currentCategory = 'todos';
 let searchQuery = '';
@@ -671,7 +631,6 @@ let quantity = 1;
 
 const WHATSAPP_NUMBER = '+593958812843';
 
-// ============ DOM ELEMENTS ============
 const header = document.getElementById('header');
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -699,7 +658,6 @@ const closeCheckoutModal = document.getElementById('closeCheckoutModal');
 const checkoutForm = document.getElementById('checkoutForm');
 const checkoutSummary = document.getElementById('checkoutSummary');
 
-// ============ UTILITIES ============
 function round2(num) {
   return Math.round((num + Number.EPSILON) * 100) / 100;
 }
@@ -732,7 +690,6 @@ function getIvaRate(size) {
   return size.iva !== undefined ? size.iva : IVA_POR_DEFECTO;
 }
 
-// Calcula el precio con IVA incluido
 function getPriceWithIva(price, ivaRate) {
   return round2(Number(price) * (1 + ivaRate));
 }
@@ -742,7 +699,6 @@ function getIvaAmount(price, ivaRate) {
 }
 
 
-// ============ HEADER ============
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
@@ -755,27 +711,23 @@ menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking a link
 document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
   });
 });
 
-// ============ CART ============
 function updateCartBadge() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartBadge.textContent = totalItems;
 }
 
-// Subtotal sin IVA
 function calculateSubtotal() {
   return round2(cart.reduce((sum, item) => {
     return sum + (Number(item.price) * item.quantity);
   }, 0));
 }
 
-// Total IVA
 function calculateTotalIva() {
   return round2(cart.reduce((sum, item) => {
     const ivaAmount = getIvaAmount(item.price, item.ivaRate);
@@ -783,7 +735,6 @@ function calculateTotalIva() {
   }, 0));
 }
 
-// Total final con IVA
 function calculateTotal() {
   return round2(cart.reduce((sum, item) => {
     const totalItem = getPriceWithIva(item.price, item.ivaRate);
@@ -916,7 +867,6 @@ cartBtn.addEventListener('click', openCart);
 closeCart.addEventListener('click', closeCartDrawer);
 cartOverlay.addEventListener('click', closeCartDrawer);
 
-// ============ PRODUCTS ============
 function filterProducts() {
   let filtered = [...products];
   
@@ -970,13 +920,11 @@ function renderProducts() {
   }
 }
 
-// Search
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value;
   renderProducts();
 });
 
-// Category filters
 categoryFilters.addEventListener('click', (e) => {
   if (e.target.classList.contains('filter-btn')) {
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -986,7 +934,6 @@ categoryFilters.addEventListener('click', (e) => {
   }
 });
 
-// ============ PRODUCT MODAL ============
 function openProductModal(productId) {
   selectedProduct = products.find(p => p.id === productId);
   selectedSize = 0;
@@ -1132,7 +1079,6 @@ function showVideo() {
     ></iframe>
   `;
   
-  // Update active thumbnail
   document.querySelectorAll('.thumbnail').forEach(thumb => {
     thumb.classList.remove('active');
   });
@@ -1172,7 +1118,6 @@ function addProductToCart() {
 closeProductModal.addEventListener('click', closeProductModalFunc);
 productModalOverlay.addEventListener('click', closeProductModalFunc);
 
-// ============ CHECKOUT ============
 function openCheckoutModal() {
   if (cart.length === 0) return;
   
@@ -1248,7 +1193,6 @@ checkoutForm.addEventListener('submit', (e) => {
   const totalIva = calculateTotalIva();
   const total = calculateTotal();
   
-  // Build WhatsApp message
   let message = `*NUEVO PEDIDO - Tahor Clean*\n\n`;
   message += `*DATOS DEL CLIENTE*\n`;
   message += `Nombre: ${data.nombre}\n`;
@@ -1272,18 +1216,15 @@ checkoutForm.addEventListener('submit', (e) => {
   message += `*TOTAL: ${formatPrice(total)}*\n\n`;
   message += `*Notas:* ${data.notas}`;
   
-  // Open WhatsApp
   const whatsappUrl = `https://wa.me/${+593958812843}?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, '_blank');
   
-  // Clear cart and close modal
   cart = [];
   renderCart();
   closeCheckoutModalFunc();
   checkoutForm.reset();
 });
 
-// ============ SMOOTH SCROLL ============
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -1299,7 +1240,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ============ SCROLL ANIMATIONS ============
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -1317,7 +1257,6 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
   observer.observe(el);
 });
 
-// ============ INITIALIZE ============
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   renderCart();

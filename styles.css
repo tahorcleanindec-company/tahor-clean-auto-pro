@@ -61,9 +61,7 @@ h1, h2, h3 {
   }
 }
 
-/* ================================
-   HEADER
-   ================================ */
+
 .header {
   position: fixed;
   top: 0;
@@ -105,7 +103,6 @@ h1, h2, h3 {
   }
 }
 
-/* Logo */
 .logo {
   display: flex;
   gap: 0.5rem;
@@ -174,7 +171,6 @@ h1, h2, h3 {
   }
 }
 
-/* Navigation */
 .nav-desktop {
   display: none;
   gap: 2rem;
@@ -224,7 +220,6 @@ h1, h2, h3 {
   width: 100%;
 }
 
-/* Header Actions */
 .header-actions {
   display: flex;
   align-items: center;
@@ -295,7 +290,6 @@ h1, h2, h3 {
   color: var(--foreground);
 }
 
-/* Mobile Menu */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -328,9 +322,7 @@ h1, h2, h3 {
   color: var(--primary);
 }
 
-/* ================================
-   HERO
-   ================================ */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -493,7 +485,6 @@ h1, h2, h3 {
   }
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -561,7 +552,6 @@ h1, h2, h3 {
   font-size: 0.75rem;
 }
 
-/* Hero Badges */
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
@@ -607,9 +597,7 @@ h1, h2, h3 {
   }
 }
 
-/* ================================
-   SECTIONS
-   ================================ */
+
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -654,9 +642,7 @@ h1, h2, h3 {
   }
 }
 
-/* ================================
-   PRODUCTS SECTION
-   ================================ */
+
 .products-section {
   padding: 4rem 0;
   background: var(--background);
@@ -668,7 +654,6 @@ h1, h2, h3 {
   }
 }
 
-/* Filters */
 .filters-container {
   margin-bottom: 2rem;
 }
@@ -744,7 +729,6 @@ h1, h2, h3 {
   color: white;
 }
 
-/* Products Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -769,7 +753,6 @@ h1, h2, h3 {
   }
 }
 
-/* Product Card */
 .product-card {
   background: white;
   border-radius: var(--radius);
@@ -800,10 +783,6 @@ h1, h2, h3 {
   object-fit: cover;
   object-position: center;
 }
-
-
-
-
 
 
 .product-card:hover .product-image img {
@@ -856,9 +835,7 @@ h1, h2, h3 {
   }
 }
 
-/* ============================================
-   ESTILOS PARA EL CÓDIGO DEL PRODUCTO
-   ============================================ */
+
 .product-code {
   font-size: 0.65rem;
   color: var(--primary);
@@ -874,7 +851,6 @@ h1, h2, h3 {
   }
 }
 
-/* Código en el modal del producto */
 .modal-product-code {
   font-size: 0.8rem;
   color: var(--primary);
@@ -888,7 +864,6 @@ h1, h2, h3 {
   display: inline-block;
 }
 
-/* Código en el carrito */
 .cart-item-code {
   font-size: 0.65rem;
   color: var(--primary);
@@ -949,7 +924,6 @@ h1, h2, h3 {
   color: var(--muted-foreground);
 }
 
-/* No Results */
 .no-results {
   text-align: center;
   padding: 4rem 2rem;
@@ -969,9 +943,7 @@ h1, h2, h3 {
   color: var(--foreground);
 }
 
-/* ================================
-   ABOUT SECTION
-   ================================ */
+
 .about-section {
   padding: 4rem 0;
   background: white;
@@ -1111,9 +1083,7 @@ h1, h2, h3 {
   opacity: 0.8;
 }
 
-/* ================================
-   CONTACT SECTION
-   ================================ */
+
 .contact-section {
   padding: 4rem 0;
   background: var(--muted);
@@ -1181,9 +1151,7 @@ h1, h2, h3 {
   color: var(--muted-foreground);
 }
 
-/* ================================
-   FOOTER
-   ================================ */
+
 .footer {
   background: var(--accent);
   color: white;
@@ -1294,9 +1262,7 @@ h1, h2, h3 {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* ================================
-   CART DRAWER
-   ================================ */
+
 .cart-overlay {
   position: fixed;
   inset: 0;
@@ -1508,9 +1474,7 @@ h1, h2, h3 {
   background: white;
 }
 
-/* ============================================
-   ESTILOS PARA SUBTOTAL, IVA Y TOTAL EN CARRITO
-   ============================================ */
+
 .cart-subtotal,
 .cart-iva {
   display: flex;
@@ -1539,9 +1503,7 @@ h1, h2, h3 {
   color: var(--primary);
 }
 
-/* ================================
-   MODALS
-   ================================ */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1826,9 +1788,7 @@ h1, h2, h3 {
   text-decoration: line-through;
 }
 
-/* ============================================
-   ESTILOS PARA IVA EN SELECTOR DE TAMAÑO
-   ============================================ */
+
 .size-iva {
   display: block;
   font-size: 0.6rem;
@@ -1844,9 +1804,7 @@ h1, h2, h3 {
   margin-top: 0.125rem;
 }
 
-/* ============================================
-   ESTILOS PARA DESGLOSE DE PRECIO
-   ============================================ */
+
 .price-breakdown {
   background: var(--muted);
   border-radius: var(--radius);
@@ -1879,7 +1837,6 @@ h1, h2, h3 {
   color: var(--primary);
 }
 
-/* Add to Cart Section */
 .add-to-cart-section {
   display: flex;
   flex-direction: column;
@@ -1917,9 +1874,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* ================================
-   CHECKOUT MODAL
-   ================================ */
+
 .checkout-modal {
   max-width: 600px;
 }
@@ -2064,9 +2019,7 @@ h1, h2, h3 {
   color: var(--foreground);
 }
 
-/* ============================================
-   ESTILOS PARA RESUMEN DE CHECKOUT CON IVA
-   ============================================ */
+
 .summary-subtotal,
 .summary-iva {
   display: flex;
@@ -2098,9 +2051,7 @@ h1, h2, h3 {
   fill: currentColor;
 }
 
-/* ================================
-   ANIMATIONS
-   ================================ */
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);
@@ -2119,7 +2070,6 @@ h1, h2, h3 {
   }
 }
 
-/* Scroll animations */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -2131,9 +2081,7 @@ h1, h2, h3 {
   transform: translateY(0);
 }
 
-/* ================================
-   UTILITY CLASSES
-   ================================ */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2146,7 +2094,6 @@ h1, h2, h3 {
   border: 0;
 }
 
-/* Hide scrollbar but allow scrolling */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
