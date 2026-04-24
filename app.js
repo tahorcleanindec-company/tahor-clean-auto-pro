@@ -101,7 +101,7 @@ const products = [
      features: ["Máxima potencia desengrasante ", "Ideal para motores y talleres ", "Acción rápida  ", "Reduce tiempo de limpieza ", "Uso industrial y automotriz ", ],
      sizes: [
        
-       { name: "Botella 1L", code: "55887", price: 1.75, icon: "🍶", iva: 0.15 },
+       { name: "Botella 1L", code: "55887", price: 2.50, icon: "🍶", iva: 0.15 },
        { name: "Galon", code: "55920", price: 4, icon: "🫙", iva: 0.15 },
        { name: "Caneca ", code: "55826", price: 13.1, icon: "🛢️", iva: 0.15 }
      ],
