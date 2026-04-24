@@ -428,9 +428,8 @@ const products = [
      description: "Protege superficies contra desgaste y suciedad.",
      category: "Acabado y protección",           
      images: [
-      
-       "img/PROTECTOR TC GLBR.webp",
        "img/46444 PROTECTOR TC 1000ML.webp",
+       "img/PROTECTOR TC GLBR.webp",
        "img/PROTECTOR TC CANECA.webp",
      ],
      video: "url-video-youtube",
