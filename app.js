@@ -13,7 +13,7 @@ const products = [
       "img/SHAMPOO PARA AUTO 20L.webp",
       
     ],
-    video: " ",
+    video: "https://youtube.com/shorts/2xWItBKKmdc",
     features: ["Buen poder de limpieza", "Mantiene brillo natural ", "Espuma controlada", "No deja residuos", "Alto rendimiento "],
     sizes: [
       
@@ -97,7 +97,7 @@ const products = [
        "img/LAVACLEAN GLBR.webp",
        "img/LAVACLEAN 20L.webp",
      ],
-     video: "url-video-youtube",
+     video: "https://www.youtube.com/shorts/5AJKeyYT74s",
      features: ["Máxima potencia desengrasante ", "Ideal para motores y talleres ", "Acción rápida  ", "Reduce tiempo de limpieza ", "Uso industrial y automotriz ", ],
      sizes: [
        
@@ -239,7 +239,7 @@ const products = [
        "img/LIMPIADOR DE RINES.webp",
        "img/LIMPIADOR DE RINES Y AROS GLBR.webp"
      ],
-     video: "url-video-youtube",
+     video: "https://www.youtube.com/shorts/M84FcqwGRk8",
      features: ["Limpieza profunda ", "Recupera brillo  ", "Seguro para rines  ", "Fácil aplicación ", "Resultados rápidos ", ],
      sizes: [
        
@@ -258,7 +258,7 @@ const products = [
        "img/IN-TAHOR 1L.webp",
        "img/IN-TAHOR 20L.webp",
      ],
-     video: "url-video-youtube",
+     video: "https://www.youtube.com/shorts/YyHY6gMCRxI",
      features: ["Limpieza profunda en interiores ", "No mancha ni decolora  ", "Ideal para tapicería  ", "Aroma agradable ", "Uso frecuente", ],
      sizes: [
        
@@ -346,7 +346,7 @@ const products = [
        "img/BRILLANTEX GLBR.webp",
        "img/BRILLANTEX CANECA.webp"
      ],
-     video: "url-video-youtube",
+     video: "https://youtube.com/shorts/BlIYp3Ct1ss",
      features: ["Brillo duradero ", "Protección ", "Mejora apariencia ", "Fácil aplicación ", "Resultado profesional", ],
      sizes: [
       
@@ -518,7 +518,7 @@ const products = [
        "img/CERA 123 GLBR.webp",
        "img/CERA 123 CANECA.webp"
      ],
-     video: "url-video-youtube",
+     video: "https://www.youtube.com/shorts/8P2eIiUOrPc",
      features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
      sizes: [
        
@@ -1245,4 +1245,43 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   renderCart();
 });
+
+function getEmbedUrl(url) {
+  if (!url) return "";
+
+  if (url.includes("/shorts/")) {
+    return url.replace("/shorts/", "/embed/");
+  }
+
+  if (url.includes("youtu.be")) {
+    const id = url.split("/").pop().split("?")[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  if (url.includes("watch?v=")) {
+    const id = url.split("v=")[1].split("&")[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  return url;
+}
+
+function showVideo() {
+  if (!selectedProduct.video || selectedProduct.video === "url-video-youtube") {
+    alert("Este producto no tiene video");
+    return;
+  }
+
+  const mainImage = document.getElementById('mainImage');
+
+  mainImage.innerHTML = `
+    <iframe 
+      src="${getEmbedUrl(selectedProduct.video)}?autoplay=1&mute=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      style="width:100%; height:100%; border-radius:12px;"
+    ></iframe>
+  `;
+}
 
