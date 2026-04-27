@@ -350,9 +350,9 @@ const products = [
      features: ["Brillo duradero ", "Protección ", "Mejora apariencia ", "Fácil aplicación ", "Resultado profesional", ],
      sizes: [
       
-       { name: "Botella 1L", code: "35742", price: 2.17, icon: "🍶", iva: 0.15 },
-       { name: "Galon", code: "35744", price: 4.79, icon: "🫙", iva: 0.15 },
-       { name: "Caneca", code: "35746", price: 19.99, icon: "🛢️", iva: 0.15 }
+       { name: "Botella 1L", code: "35742", price: 2.75, icon: "🍶", iva: 0.15 },
+       { name: "Galon", code: "35744", price: 7, icon: "🫙", iva: 0.15 },
+       { name: "Caneca", code: "35746", price: 27.5, icon: "🛢️", iva: 0.15 }
 
      ],
      rating: 4.5,
