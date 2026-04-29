@@ -324,7 +324,7 @@ const products = [
        "img/DIOXIGET MULTIUSOS GLC.webp",
        "img/DIOXIGENT MULTIUSOS 20L.webp",
      ],
-     video: "url-video-youtube",
+     video: "https://youtube.com/shorts/GDYsBznGQCU?si=D_OdpBQyqkjR_CQY",
      features: ["Acción desinfectante ", "Elimina olores ", "Seguro para interiores ", "Uso diario ", "Mejora higiene ", ],
      sizes: [
  
@@ -410,7 +410,7 @@ const products = [
        "img/52386 DUCHA GRAFITADA GLBR.webp",
        "img/DUCHA GRAFITADA 20L.webp",
      ],
-     video: "url-video-youtube",
+     video: "https://youtube.com/shorts/ZFABJ4tjjP0?si=HM7SoHYLeuJDdpYK",
      features: ["Efecto repelente ", "Mejora seguridad ", "Aplicación sencilla ", "Duración prolongada ", "Ideal para lluvia "],
      sizes: [
        
@@ -497,7 +497,7 @@ const products = [
        "img/SPLASH ESENCIA GALÓN.webp",
        "img/SPLASH ESENCIA CANECA.webp"
      ],
-     video: "url-video-youtube",
+     video: "https://youtube.com/shorts/KIzaX3E0xu0?si=MhRPSPT5qIX4EIqF",
      features: ["Aroma agradable", "Larga duración", "Facil Aplicación", "Variedad de fragancias", "Uso diario"],
      sizes: [
        
