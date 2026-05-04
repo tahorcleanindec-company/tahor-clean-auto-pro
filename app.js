@@ -402,7 +402,7 @@ const products = [
    },
    {
      id: 21,                           
-     name: "Ducha Grafitada",
+     name: "Ducha  Grafitada",
      description: "Mejora la visibilidad al repeler agua.",
      category: "Acabado y protección",           
      images: [
