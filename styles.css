@@ -2103,3 +2103,6 @@ h1, h2, h3 {
   display: none;
 }
 
+.footer-legal { display:flex; gap:1.4rem; }
+        .footer-legal a { color:var(--text-muted); text-decoration:none; transition:color .2s; }
+        .footer-legal a:hover { color:var(--text); }

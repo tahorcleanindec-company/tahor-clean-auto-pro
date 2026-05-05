@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos Legales – Tahor Clean</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0d9488;
+    --teal-light: #e1f5f3;
+    --teal-dark: #085041;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --text: #1a1a1a;
+    --muted: #5c5c5c;
+    --border: #e2e8e8;
+    --bg: #f0f4f3;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--teal-dark);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  header .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  header .tagline {
+    font-size: 0.78rem;
+    opacity: 0.65;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tab-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    padding: 0 2rem;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .tab-btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    color: var(--teal-dark);
+    border-bottom-color: var(--teal);
+    font-weight: 500;
+  }
+  .tab-btn:hover:not(.active) { color: var(--text); }
+  .content { flex: 1; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 5rem;
+  }
+  .doc-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+  }
+  .doc-header .date {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+  }
+  .toc {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc h2 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--teal-dark);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .toc ol { padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  @media (max-width: 560px) { .toc ol { columns: 1; } }
+  .toc li { margin: 0.25rem 0; break-inside: avoid; }
+  .toc a { color: var(--teal); text-decoration: none; font-size: 0.85rem; }
+  .toc a:hover { text-decoration: underline; }
+  section { margin-bottom: 2.5rem; }
+  section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border);
+  }
+  p { color: var(--muted); margin-bottom: 0.7rem; }
+  ul, ol { color: var(--muted); padding-left: 1.4rem; margin-bottom: 0.7rem; }
+  li { margin-bottom: 0.25rem; }
+  .highlight-box {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .highlight-box p { color: var(--teal-dark); margin: 0; font-size: 0.92rem; }
+  .warning-box {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .warning-box p { color: #78350f; margin: 0; font-size: 0.92rem; }
+  .contact-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+  .contact-box p { margin: 0.2rem 0; }
+  strong { color: var(--text); font-weight: 500; }
+  a { color: var(--teal); }
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 1rem 0;
+  }
+  .flow-step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .flow-step .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px; height: 26px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .flow-step p { font-size: 0.78rem; color: var(--muted); margin: 0; line-height: 1.4; }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    font-size: 0.82rem;
+    opacity: 0.75;
+    text-decoration: none;
+    margin-right: auto;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    transition: opacity 0.2s;
+  }
+  .back-btn:hover { opacity: 1; }
+  .wa-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand">Tahor Clean</div>
+    <div class="tagline">Limpieza Profesional · Ecuador</div>
+  </div>
+  <a href="javascript:history.back()" class="back-btn">← Volver a la tienda</a>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn active" onclick="showTab('privacidad')" role="tab" aria-selected="true">Política de Privacidad</button>
+  <button class="tab-btn" onclick="showTab('terminos')" role="tab" aria-selected="false">Términos y Condiciones</button>
+</nav>
+
+<div class="content">
+
+  <!-- ===== POLÍTICA DE PRIVACIDAD ===== -->
+  <div id="panel-privacidad" class="tab-panel active">
+    <div class="container">
+      <div class="doc-header">
+        <h1>Política de Privacidad</h1>
+        <div class="date">Última actualización: 1 de mayo de 2026 · Aplica a las tres tiendas en línea de Tahor Clean</div>
+      </div>
+
+      <div class="toc">
+        <h2>Índice</h2>
+        <ol>
+          <li><a href="#p1">Responsable del Tratamiento</a></li>
+          <li><a href="#p2">Datos que Recopilamos</a></li>
+          <li><a href="#p3">Finalidad del Tratamiento</a></li>
+          <li><a href="#p4">Pedidos por WhatsApp</a></li>
+          <li><a href="#p5">Conservación de Datos</a></li>
+          <li><a href="#p6">Compartición con Terceros</a></li>
+          <li><a href="#p7">Derechos del Titular</a></li>
+          <li><a href="#p8">Seguridad</a></li>
+          <li><a href="#p9">Cookies</a></li>
+          <li><a href="#p10">Menores de Edad</a></li>
+          <li><a href="#p11">Cambios a esta Política</a></li>
+          <li><a href="#p12">Contacto</a></li>
+        </ol>
+      </div>
+
+      <div class="highlight-box">
+        <p>Tu privacidad es importante para nosotros. Esta política explica qué datos recopilamos, cómo los usamos y cuáles son tus derechos, en cumplimiento de la <strong>Ley Orgánica de Protección de Datos Personales del Ecuador (LOPDP)</strong>.</p>
+      </div>
+
+      <section id="p1">
+        <h2>1. Responsable del Tratamiento</h2>
+        <div class="contact-box">
+          <p><strong>Empresa:</strong> Tahor Clean</p>
+          <p><strong>Actividad:</strong> Fabricación y distribución de productos de limpieza profesional</p>
+          <p><strong>Domicilio:</strong> Manta, Manabí, Ecuador</p>
+          <p><strong>Correo:</strong> tahorclean.ind.ec@gmail.com</p>
+          <p><strong>WhatsApp:</strong> +593 958 812 843</p>
+        </div>
+      </section>
+
+      <section id="p2">
+        <h2>2. Datos que Recopilamos</h2>
+        <p>Al realizar un pedido en cualquiera de nuestras tiendas, el formulario solicita:</p>
+        <ul>
+          <li>Nombre completo</li>
+          <li>Número de cédula o RUC</li>
+          <li>Correo electrónico</li>
+          <li>Número de celular</li>
+          <li>Nombre del establecimiento o empresa (según la tienda)</li>
+          <li>Dirección de entrega (calle, ciudad, provincia)</li>
+          <li>Notas adicionales del pedido</li>
+        </ul>
+        <p>No almacenamos ni procesamos datos de tarjetas de crédito ni cuentas bancarias.</p>
+      </section>
+
+      <section id="p3">
+        <h2>3. Finalidad del Tratamiento</h2>
+        <p>Usamos tus datos únicamente para:</p>
+        <ul>
+          <li>Procesar y gestionar tu pedido a través de WhatsApp Business.</li>
+          <li>Coordinar la entrega a tu dirección indicada.</li>
+          <li>Emitir documentos tributarios cuando aplique.</li>
+          <li>Atender consultas, reclamos o devoluciones.</li>
+          <li>Informarte sobre el estado de tu pedido.</li>
+        </ul>
+        <p>No usamos tus datos para publicidad no solicitada.</p>
+      </section>
+
+      <section id="p4">
+        <h2>4. Pedidos por WhatsApp</h2>
+        <p>Al confirmar tu pedido, eres redirigido a <strong>WhatsApp Business</strong> con un mensaje precompletado. WhatsApp es un servicio de Meta Platforms Inc. sujeto a sus propias <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">políticas de privacidad</a>. Tahor Clean no controla el tratamiento de datos realizado por Meta.</p>
+      </section>
+
+      <section id="p5">
+        <h2>5. Conservación de Datos</h2>
+        <p>Los datos de tu pedido se conservan <strong>7 años</strong>, en cumplimiento de las obligaciones tributarias del SRI. Transcurrido ese plazo, son eliminados de forma segura.</p>
+      </section>
+
+      <section id="p6">
+        <h2>6. Compartición con Terceros</h2>
+        <p>No vendemos ni cedemos tus datos a terceros con fines comerciales. Podemos compartirlos con:</p>
+        <ul>
+          <li><strong>Operadores logísticos</strong> para la entrega de tu pedido.</li>
+          <li><strong>Autoridades ecuatorianas</strong> por requerimiento legal.</li>
+          <li><strong>WhatsApp / Meta</strong> para la gestión de pedidos (ver sección 4).</li>
+        </ul>
+      </section>
+
+      <section id="p7">
+        <h2>7. Derechos del Titular</h2>
+        <p>Conforme a la LOPDP, tienes derecho a: <strong>acceso, rectificación, eliminación, oposición y portabilidad</strong> de tus datos. Para ejercerlos, escríbenos a <strong>tahorclean.ind.ec@gmail.com</strong> con el asunto "Derechos LOPDP". Respondemos en máximo 15 días hábiles.</p>
+      </section>
+
+      <section id="p8">
+        <h2>8. Seguridad</h2>
+        <p>Adoptamos medidas técnicas y organizativas razonables para proteger tus datos. Sin embargo, ningún sistema de transmisión por Internet garantiza seguridad absoluta.</p>
+      </section>
+
+      <section id="p9">
+        <h2>9. Cookies</h2>
+        <p>Nuestros sitios pueden usar cookies técnicas esenciales para el funcionamiento del carrito. No utilizamos cookies de publicidad o rastreo de terceros.</p>
+      </section>
+
+      <section id="p10">
+        <h2>10. Menores de Edad</h2>
+        <p>Nuestras tiendas están dirigidas a personas mayores de 18 años. No recopilamos datos de menores de edad intencionalmente.</p>
+      </section>
+
+      <section id="p11">
+        <h2>11. Cambios a esta Política</h2>
+        <p>Podemos actualizar esta política en cualquier momento. La fecha al inicio del documento refleja la versión vigente. El uso continuado de nuestras tiendas tras los cambios implica su aceptación.</p>
+      </section>
+
+      <section id="p12">
+        <h2>12. Contacto</h2>
+        <div class="contact-box">
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/593958812843" target="_blank">+593 958 812 843</a></p>
+          <p><strong>Correo:</strong> tahorclean.ind.ec@gmail.com</p>
+          <p><strong>Redes:</strong> @tahorcleanecuador (Instagram) · facebook.com/tahorclean.compras</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== TÉRMINOS Y CONDICIONES ===== -->
+  <div id="panel-terminos" class="tab-panel">
+    <div class="container">
+      <div class="doc-header">
+        <h1>Términos y Condiciones</h1>
+        <div class="date">Última actualización: 1 de mayo de 2026 · Aplica a las tres tiendas en línea de Tahor Clean</div>
+      </div>
+
+      <div class="toc">
+        <h2>Índice</h2>
+        <ol>
+          <li><a href="#t1">Aceptación</a></li>
+          <li><a href="#t2">Identificación de la Empresa</a></li>
+          <li><a href="#t3">Nuestras Tiendas</a></li>
+          <li><a href="#t4">Proceso de Compra</a></li>
+          <li><a href="#t5">Precios y Disponibilidad</a></li>
+          <li><a href="#t6">Formas de Pago</a></li>
+          <li><a href="#t7">Envío y Entrega</a></li>
+          <li><a href="#t8">Devoluciones y Garantías</a></li>
+          <li><a href="#t9">Uso Adecuado de Productos</a></li>
+          <li><a href="#t10">Limitación de Responsabilidad</a></li>
+          <li><a href="#t11">Propiedad Intelectual</a></li>
+          <li><a href="#t12">Ley Aplicable</a></li>
+          <li><a href="#t13">Contacto</a></li>
+        </ol>
+      </div>
+
+      <div class="highlight-box">
+        <p>Al utilizar cualquiera de nuestras tiendas en línea y realizar un pedido, aceptas estos Términos y Condiciones en su totalidad.</p>
+      </div>
+
+      <section id="t1">
+        <h2>1. Aceptación</h2>
+        <p>El uso de los sitios web de Tahor Clean y la realización de pedidos implica la aceptación plena de estos Términos y Condiciones, que podrán ser modificados en cualquier momento. La versión vigente es siempre la publicada en los sitios web.</p>
+      </section>
+
+      <section id="t2">
+        <h2>2. Identificación de la Empresa</h2>
+        <div class="contact-box">
+          <p><strong>Empresa:</strong> Tahor Clean</p>
+          <p><strong>Actividad:</strong> Fabricación y distribución de productos de limpieza profesional</p>
+          <p><strong>Domicilio:</strong> Manta, Manabí, Ecuador</p>
+          <p><strong>WhatsApp:</strong> +593 958 812 843 · <strong>Correo:</strong> tahorclean.ind.ec@gmail.com</p>
+        </div>
+      </section>
+
+      <section id="t3">
+        <h2>3. Nuestras Tiendas en Línea</h2>
+        <ul>
+          <li><strong>Tahor Clean Restaurantes</strong> — Limpieza para cocinas industriales y restaurantes.</li>
+          <li><strong>Tahor Clean Auto Pro</strong> — Línea premium para limpieza y cuidado vehicular.</li>
+          <li><strong>Tahor Clean Hospitalaria</strong> — Desinfección de grado hospitalario para clínicas y laboratorios.</li>
+        </ul>
+        <p>Estos Términos aplican por igual a las tres tiendas.</p>
+      </section>
+
+      <section id="t4">
+        <h2>4. Proceso de Compra</h2>
+        <div class="flow-steps">
+          <div class="flow-step"><div class="num">1</div><p>Añades productos al carrito</p></div>
+          <div class="flow-step"><div class="num">2</div><p>Completas el formulario con tus datos</p></div>
+          <div class="flow-step"><div class="num">3</div><p>Te redirigimos a WhatsApp con el pedido</p></div>
+          <div class="flow-step"><div class="num">4</div><p>Nuestro equipo confirma disponibilidad y precio</p></div>
+          <div class="flow-step"><div class="num">5</div><p>Realizas el pago y coordinamos la entrega</p></div>
+        </div>
+        <p>El pedido se confirma solo cuando nuestro equipo lo valida y el cliente realiza el pago acordado.</p>
+      </section>
+
+      <section id="t5">
+        <h2>5. Precios y Disponibilidad</h2>
+        <ul>
+          <li>Precios en <strong>dólares estadounidenses (USD)</strong>, incluyen IVA cuando se indique.</li>
+          <li>Los precios pueden modificarse sin previo aviso. Los precios vigentes son los comunicados al confirmar el pedido por WhatsApp.</li>
+          <li>Envío gratuito en pedidos que superen el monto mínimo de cada tienda ($50 – $60 según la línea).</li>
+        </ul>
+      </section>
+
+      <section id="t6">
+        <h2>6. Formas de Pago</h2>
+        <p>El pago se coordina por WhatsApp una vez confirmado el pedido. Métodos disponibles:</p>
+        <ul>
+          <li>Transferencia o depósito bancario</li>
+          <li>Pago contra entrega (sujeto a disponibilidad por zona)</li>
+          <li>Otros métodos acordados con el equipo de ventas</li>
+        </ul>
+        <p>Tahor Clean nunca solicitará datos de tarjetas de crédito por ningún canal.</p>
+      </section>
+
+      <section id="t7">
+        <h2>7. Envío y Entrega</h2>
+        <ul>
+          <li><strong>Ciudades principales:</strong> 24 a 48 horas hábiles tras confirmación de pago.</li>
+          <li><strong>Zonas remotas:</strong> plazo comunicado al confirmar el pedido.</li>
+          <li>Tahor Clean no se responsabiliza por demoras del operador logístico una vez entregado el paquete al transportista.</li>
+        </ul>
+      </section>
+
+      <section id="t8">
+        <h2>8. Devoluciones y Garantías</h2>
+        <ul>
+          <li><strong>5 días calendario</strong> desde la recepción para notificar defectos, daños o errores de pedido.</li>
+          <li>Solicitar por WhatsApp adjuntando fotos del producto y empaque.</li>
+          <li>Aceptamos devoluciones por: producto defectuoso, incorrecto o dañado en transporte.</li>
+          <li>No se aceptan devoluciones por cambio de opinión o uso incorrecto.</li>
+        </ul>
+        <div class="warning-box">
+          <p>Lee siempre el etiquetado e instrucciones antes de usar nuestros productos. Están formulados para usos específicos; su aplicación inadecuada anula la garantía.</p>
+        </div>
+      </section>
+
+      <section id="t9">
+        <h2>9. Uso Adecuado de Productos</h2>
+        <p>El cliente es responsable de leer la ficha técnica, usar los productos según su etiqueta, almacenarlos correctamente y emplear equipos de protección cuando se recomiende. Tahor Clean no se responsabiliza por daños derivados del uso inadecuado.</p>
+      </section>
+
+      <section id="t10">
+        <h2>10. Limitación de Responsabilidad</h2>
+        <p>Tahor Clean no será responsable por: interrupciones del sitio web, errores tipográficos en el catálogo, daños por uso incorrecto de productos, o retrasos causados por factores externos al transportista.</p>
+      </section>
+
+      <section id="t11">
+        <h2>11. Propiedad Intelectual</h2>
+        <p>Todos los contenidos (nombre, logo, textos, imágenes, diseño) son propiedad de Tahor Clean. Queda prohibida su reproducción sin autorización escrita.</p>
+      </section>
+
+      <section id="t12">
+        <h2>12. Ley Aplicable</h2>
+        <p>Estos Términos se rigen por la legislación ecuatoriana: <strong>Ley Orgánica de Defensa del Consumidor</strong>, <strong>Ley de Comercio Electrónico</strong> y <strong>LOPDP</strong>. Controversias se someterán a los tribunales de <strong>Manta, Manabí, Ecuador</strong>.</p>
+      </section>
+
+      <section id="t13">
+        <h2>13. Contacto</h2>
+        <div class="contact-box">
+          <p><a class="wa-link" href="https://wa.me/593958812843" target="_blank">Escribir por WhatsApp</a></p>
+          <p style="margin-top:0.6rem;"><strong>Correo:</strong> tahorclean.ind.ec@gmail.com</p>
+          <p><strong>Instagram:</strong> @tahorcleanecuador · @tahorclean.auto</p>
+          <p><strong>Facebook:</strong> facebook.com/tahorclean.compras</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Tahor Clean · Manta, Ecuador · Todos los derechos reservados ·
+  Desarrollado por <a href="https://codegurex.github.io/CODEGUREX/" target="_blank">CODE🌐GUREX</a>
+</footer>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+  event.target.setAttribute('aria-selected','true');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+const hash = window.location.hash;
+if (hash === '#terminos') showTab('terminos');
+</script>
+</body>
+</html>
