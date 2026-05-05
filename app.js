@@ -1285,3 +1285,92 @@ function showVideo() {
   `;
 }
 
+const SUPABASE_URL = "https://amhlxfjfkufqynskwcen.supabase.co";
+const API_KEY = "sb_publishable_AfNakrDvZ3sf7znqk927yg_7r970-0N";
+
+async function hacerPedido() {
+
+  if (carrito.length === 0) {
+    alert("El carrito está vacío");
+    return;
+  }
+
+  const pedido = {
+    tienda_id: "vehiculos", // cambia en cada página
+    sector: "vehiculos",
+    cliente_nombre: document.getElementById("nombre").value,
+    cedula: document.getElementById("cedula").value,
+    email: document.getElementById("email").value,
+    telefono: document.getElementById("telefono").value,
+    direccion: document.getElementById("direccion").value,
+    ciudad: document.getElementById("ciudad").value,
+    notas: document.getElementById("notas").value,
+    subtotal: calcularSubtotal(),
+    iva: calcularIVA(),
+    total: calcularTotal()
+  };
+
+  try {
+    // 🔥 1. Guardar pedido
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": API_KEY,
+        "Authorization": `Bearer ${API_KEY}`,
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify(pedido)
+    });
+
+    const data = await res.json();
+    const pedidoId = data[0].id;
+
+    // 🔥 2. Guardar productos
+    for (let p of carrito) {
+      await fetch(`${SUPABASE_URL}/rest/v1/detalle_pedido`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": API_KEY,
+          "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          pedido_id: pedidoId,
+          producto_codigo: p.codigo,
+          nombre: p.nombre,
+          cantidad: p.cantidad,
+          precio: p.precio
+        })
+      });
+    }
+
+    // 🔥 3. Generar WhatsApp (igual que ya usas)
+    let mensaje = `*NUEVO PEDIDO*\n\n`;
+    mensaje += `Pedido #${pedidoId}\n`;
+    mensaje += `Cliente: ${pedido.cliente_nombre}\n`;
+    mensaje += `Tel: ${pedido.telefono}\n\n`;
+
+    mensaje += `*PRODUCTOS*\n`;
+
+    carrito.forEach(p => {
+      mensaje += `- [${p.codigo}] ${p.nombre} x${p.cantidad} = $${p.precio}\n`;
+    });
+
+    mensaje += `\n*TOTAL: $${pedido.total.toFixed(2)}*`;
+
+    // 🔥 4. Redirigir a WhatsApp
+    window.open(
+      `https://wa.me/+593958812843?text=${encodeURIComponent(mensaje)}`,
+      "_blank"
+    );
+
+    // 🔥 5. Limpiar carrito
+    carrito.length = 0;
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error al guardar el pedido");
+  }
+}
+
