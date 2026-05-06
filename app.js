@@ -1173,7 +1173,7 @@ function deducirTienda(cart) {
   return 'Sector Automotriz'; // default
 }
 
-checkoutForm.addEventListener('submit', async (e) => {
+checkoutForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const formData = new FormData(checkoutForm);
@@ -1191,57 +1191,9 @@ checkoutForm.addEventListener('submit', async (e) => {
   const subtotal = calculateSubtotal();
   const totalIva = calculateTotalIva();
   const total    = calculateTotal();
+  const cartSnapshot = [...cart]; // copia ANTES de limpiar
 
-  try {
-    // 1) Upsert cliente (por teléfono)
-    const { data: cli, error: e1 } = await supa
-      .from('clientes')
-      .upsert({
-        nombre: data.nombre, cedula: data.cedula, email: data.email,
-        telefono: data.telefono, direccion: data.direccion,
-        ciudad: data.ciudad, provincia: data.provincia,
-      }, { onConflict: 'telefono' })
-      .select()
-      .single();
-    if (e1) throw e1;
-
-    // 2) Crear pedido
-    const { data: ped, error: e2 } = await supa
-      .from('pedidos')
-      .insert({
-        cliente_id: cli.id,
-        estado: 'en_espera',
-        tienda: deducirTienda(cart),
-        subtotal, iva: totalIva, total,
-        notas: data.notas,
-      })
-      .select()
-      .single();
-    if (e2) throw e2;
-
-    // 3) Crear detalle
-    const detalle = cart.map(item => {
-      const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
-      return {
-        pedido_id: ped.id,
-        producto: item.name,
-        codigo: item.sizeCode,
-        variante: item.sizeName,
-        cantidad: item.quantity,
-        precio_unitario: item.price,
-        iva_rate: item.ivaRate,
-        subtotal: priceWithIva * item.quantity,
-      };
-    });
-    const { error: e3 } = await supa.from('detalle_pedido').insert(detalle);
-    if (e3) throw e3;
-
-  } catch (err) {
-    console.error('Error guardando pedido:', err);
-    alert('No pude guardar el pedido en la base. Se enviará a WhatsApp igualmente.');
-  }
-
-  // 4) Después de guardar, lo que ya hacías: enviar a WhatsApp
+  // 1) ABRIR WHATSAPP PRIMERO (mientras existe gesto del usuario)
   let message = `*NUEVO PEDIDO - Tahor Clean*\n\n`;
   message += `*DATOS DEL CLIENTE*\n`;
   message += `Nombre: ${data.nombre}\nCedula: ${data.cedula}\n`;
@@ -1249,7 +1201,7 @@ checkoutForm.addEventListener('submit', async (e) => {
   message += `*DIRECCION DE ENVIO*\n${data.direccion}\n`;
   message += `${data.ciudad}${data.provincia ? ', ' + data.provincia : ''}\n\n`;
   message += `*PRODUCTOS*\n`;
-  cart.forEach(item => {
+  cartSnapshot.forEach(item => {
     const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
     const ivaPct = Math.round(item.ivaRate * 100);
     message += `- [${item.sizeCode}] ${item.name} (${item.sizeName}) x${item.quantity} = ${formatPrice(priceWithIva * item.quantity)} (IVA ${ivaPct}% incluido)\n`;
@@ -1258,11 +1210,60 @@ checkoutForm.addEventListener('submit', async (e) => {
 
   window.open(`https://wa.me/593958812843?text=${encodeURIComponent(message)}`, '_blank');
 
+  // 2) LUEGO guardar en Supabase en segundo plano (no bloquea WhatsApp)
+  guardarPedidoEnSupabase(data, cartSnapshot, subtotal, totalIva, total)
+    .catch(err => console.error('No se guardó en Supabase:', err));
+
+  // 3) Limpiar UI
   cart = [];
   renderCart();
   closeCheckoutModalFunc();
   checkoutForm.reset();
 });
+
+async function guardarPedidoEnSupabase(data, cart, subtotal, totalIva, total) {
+  const { data: cli, error: e1 } = await supa
+    .from('clientes')
+    .upsert({
+      nombre: data.nombre, cedula: data.cedula, email: data.email,
+      telefono: data.telefono, direccion: data.direccion,
+      ciudad: data.ciudad, provincia: data.provincia,
+    }, { onConflict: 'telefono' })
+    .select()
+    .single();
+  if (e1) throw e1;
+
+  const { data: ped, error: e2 } = await supa
+    .from('pedidos')
+    .insert({
+      cliente_id: cli.id,
+      estado: 'en_espera',
+      tienda: deducirTienda(cart),
+      subtotal, iva: totalIva, total,
+      notas: data.notas,
+    })
+    .select()
+    .single();
+  if (e2) throw e2;
+
+  const detalle = cart.map(item => {
+    const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
+    return {
+      pedido_id: ped.id,
+      producto: item.name,
+      codigo: item.sizeCode,
+      variante: item.sizeName,
+      cantidad: item.quantity,
+      precio_unitario: item.price,
+      iva_rate: item.ivaRate,
+      subtotal: priceWithIva * item.quantity,
+    };
+  });
+  const { error: e3 } = await supa.from('detalle_pedido').insert(detalle);
+  if (e3) throw e3;
+
+  console.log('✅ Pedido #' + ped.id + ' guardado en Supabase');
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
