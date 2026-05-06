@@ -1,4 +1,10 @@
+const supa = window.supabase.createClient(
+  'https://qfaehwchilcpjqqzykkm.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmYWVod2NoaWxjcGpxcXp5a2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwOTAyMTksImV4cCI6MjA5MzY2NjIxOX0.8pjr03EjvTJ9JXovkSqlMfiYzsX6V10JMsP2sYuH_7A'
+);
+
 const IVA_POR_DEFECTO = 0.15; 
+
 
 const products = [
   {
@@ -1158,51 +1164,100 @@ checkoutBtn.addEventListener('click', openCheckoutModal);
 closeCheckoutModal.addEventListener('click', closeCheckoutModalFunc);
 checkoutModalOverlay.addEventListener('click', closeCheckoutModalFunc);
 
-checkoutForm.addEventListener('submit', (e) => {
+
+function deducirTienda(cart) {
+  const txt = cart.map(i => (i.name + ' ' + (i.sizeName||'')).toLowerCase()).join(' ');
+  if (/vehic|auto|carro|moto/.test(txt))         return 'Sector Automotriz';
+  if (/hospital|clinic|salud|medic/.test(txt))   return 'Sector Hospitales';
+  if (/restaurant|cocina|food|comida/.test(txt)) return 'Sector Restaurante';
+  return 'Sector Automotriz'; // default
+}
+
+checkoutForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+
   const formData = new FormData(checkoutForm);
   const data = {
-    nombre: formData.get('nombre'),
-    cedula: formData.get('cedula'),
-    email: formData.get('email'),
-    telefono: formData.get('telefono'),
+    nombre:    formData.get('nombre'),
+    cedula:    formData.get('cedula'),
+    email:     formData.get('email'),
+    telefono:  formData.get('telefono'),
     direccion: formData.get('direccion'),
-    ciudad: formData.get('ciudad'),
+    ciudad:    formData.get('ciudad'),
     provincia: formData.get('provincia'),
-    notas: formData.get('notas') || 'Sin notas'
+    notas:     formData.get('notas') || 'Sin notas'
   };
-  
+
   const subtotal = calculateSubtotal();
   const totalIva = calculateTotalIva();
-  const total = calculateTotal();
-  
+  const total    = calculateTotal();
+
+  try {
+    // 1) Upsert cliente (por teléfono)
+    const { data: cli, error: e1 } = await supa
+      .from('clientes')
+      .upsert({
+        nombre: data.nombre, cedula: data.cedula, email: data.email,
+        telefono: data.telefono, direccion: data.direccion,
+        ciudad: data.ciudad, provincia: data.provincia,
+      }, { onConflict: 'telefono' })
+      .select()
+      .single();
+    if (e1) throw e1;
+
+    // 2) Crear pedido
+    const { data: ped, error: e2 } = await supa
+      .from('pedidos')
+      .insert({
+        cliente_id: cli.id,
+        estado: 'en_espera',
+        tienda: deducirTienda(cart),
+        subtotal, iva: totalIva, total,
+        notas: data.notas,
+      })
+      .select()
+      .single();
+    if (e2) throw e2;
+
+    // 3) Crear detalle
+    const detalle = cart.map(item => {
+      const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
+      return {
+        pedido_id: ped.id,
+        producto: item.name,
+        codigo: item.sizeCode,
+        variante: item.sizeName,
+        cantidad: item.quantity,
+        precio_unitario: item.price,
+        iva_rate: item.ivaRate,
+        subtotal: priceWithIva * item.quantity,
+      };
+    });
+    const { error: e3 } = await supa.from('detalle_pedido').insert(detalle);
+    if (e3) throw e3;
+
+  } catch (err) {
+    console.error('Error guardando pedido:', err);
+    alert('No pude guardar el pedido en la base. Se enviará a WhatsApp igualmente.');
+  }
+
+  // 4) Después de guardar, lo que ya hacías: enviar a WhatsApp
   let message = `*NUEVO PEDIDO - Tahor Clean*\n\n`;
   message += `*DATOS DEL CLIENTE*\n`;
-  message += `Nombre: ${data.nombre}\n`;
-  message += `Cedula: ${data.cedula}\n`;
-  message += `Email: ${data.email}\n`;
-  message += `Telefono: ${data.telefono}\n\n`;
-  message += `*DIRECCION DE ENVIO*\n`;
-  message += `${data.direccion}\n`;
+  message += `Nombre: ${data.nombre}\nCedula: ${data.cedula}\n`;
+  message += `Email: ${data.email}\nTelefono: ${data.telefono}\n\n`;
+  message += `*DIRECCION DE ENVIO*\n${data.direccion}\n`;
   message += `${data.ciudad}${data.provincia ? ', ' + data.provincia : ''}\n\n`;
   message += `*PRODUCTOS*\n`;
-
   cart.forEach(item => {
     const priceWithIva = getPriceWithIva(item.price, item.ivaRate);
-    const ivaPercentage = Math.round(item.ivaRate * 100);
-    message += `- [${item.sizeCode}] ${item.name} (${item.sizeName}) x${item.quantity} = ${formatPrice(priceWithIva * item.quantity)} (IVA ${ivaPercentage}% incluido)\n`;
+    const ivaPct = Math.round(item.ivaRate * 100);
+    message += `- [${item.sizeCode}] ${item.name} (${item.sizeName}) x${item.quantity} = ${formatPrice(priceWithIva * item.quantity)} (IVA ${ivaPct}% incluido)\n`;
   });
-  
-  message += `\n*RESUMEN*\n`;
-  message += `Subtotal: ${formatPrice(subtotal)}\n`;
-  message += `IVA (15%): ${formatPrice(totalIva)}\n`;
-  message += `*TOTAL: ${formatPrice(total)}*\n\n`;
-  message += `*Notas:* ${data.notas}`;
-  
-  const whatsappUrl = `https://wa.me/${+593958812843}?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, '_blank');
-  
+  message += `\n*RESUMEN*\nSubtotal: ${formatPrice(subtotal)}\nIVA (15%): ${formatPrice(totalIva)}\n*TOTAL: ${formatPrice(total)}*\n\n*Notas:* ${data.notas}`;
+
+  window.open(`https://wa.me/593958812843?text=${encodeURIComponent(message)}`, '_blank');
+
   cart = [];
   renderCart();
   closeCheckoutModalFunc();
