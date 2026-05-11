@@ -608,7 +608,7 @@ const products = [
      reviews: 0
    }, 
    {
-     id: 30,                           
+     id: 31,                           
      name: "Silicon T7",
      description: " Protección y brillo para plásticos y superficies.",
      category: "acabado y protección",           
