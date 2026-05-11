@@ -1107,7 +1107,6 @@ function changeQuantity(delta) {
   const ivaRate = getIvaRate(currentSize);
   const priceWithIva = getPriceWithIva(currentSize.price, ivaRate);
   
-  // Update button price
   const btn = document.querySelector('.add-to-cart-section .btn-primary');
   btn.innerHTML = `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
@@ -1229,11 +1228,9 @@ checkoutForm.addEventListener('submit', (e) => {
 
   window.open(`https://wa.me/593958812843?text=${encodeURIComponent(message)}`, '_blank');
 
-  // 2) LUEGO guardar en Supabase en segundo plano (no bloquea WhatsApp)
   guardarPedidoEnSupabase(data, cartSnapshot, subtotal, totalIva, total)
     .catch(err => console.error('No se guardó en Supabase:', err));
 
-  // 3) Limpiar UI
   cart = [];
   renderCart();
   closeCheckoutModalFunc();
