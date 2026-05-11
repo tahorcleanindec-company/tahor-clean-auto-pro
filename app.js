@@ -611,7 +611,7 @@ const products = [
      id: 33,                           
      name: "Silicon T7",
      description: " Protección y brillo para plásticos y superficies.",
-     category: "acabado y protección",           
+     category: "Acabado y protección",           
      images: [
        "img/Silicon  T7 gl.webp",
         "img/Silicon  T7.webp"
