@@ -607,6 +607,25 @@ const products = [
      rating: 4.5,
      reviews: 0
    }, 
+   {
+     id: 30,                           
+     name: "Silicon T7",
+     description: " Protección y brillo para plásticos y superficies.",
+     category: "acabado y protección",           
+     images: [
+       "img/Silicon  T7 gl.webp",
+        "img/Silicon  T7.webp"
+     ],
+     video: "url-video-youtube",
+     features: ["Protección UV ", "Brillo uniforme ", "No deja residuos grasos ", "Uso interior/exterior ", "Prolonga vida útil "],
+     sizes: [
+       
+       { name: "Galon ", code: "", price: 11.3, icon: "🫙", iva: 0.15 },
+       { name: "Caneca ", code: "", price: 44.25, icon: "🛢️", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   }, 
    
    
 ];
