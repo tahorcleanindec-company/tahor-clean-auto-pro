@@ -5,7 +5,6 @@ const supa = window.supabase.createClient(
 
 const IVA_POR_DEFECTO = 0.15; 
 
-
 const products = [
   {
     id: 1,
@@ -628,7 +627,6 @@ const products = [
    
 ];
 
-
 let cart = [];
 let currentCategory = 'todos';
 let searchQuery = '';
@@ -678,8 +676,6 @@ function formatPrice(price) {
   }).format(price);
 }
 
-
-
 function getCategoryLabel(category) {
   const labels = {
     shampoo: 'Shampoo',
@@ -704,7 +700,6 @@ function getPriceWithIva(price, ivaRate) {
 function getIvaAmount(price, ivaRate) {
   return round2(Number(price) * ivaRate);
 }
-
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
@@ -748,8 +743,6 @@ function calculateTotal() {
     return sum + (totalItem * item.quantity);
   }, 0));
 }
-
-
 
 function renderCart() {
   if (cart.length === 0) {
@@ -843,7 +836,6 @@ function addToCart(product, sizeIndex, qty) {
   renderCart();
   openCart();
 }
-
 
 function updateCartQuantity(index, delta) {
   cart[index].quantity += delta;
@@ -1197,7 +1189,6 @@ function deducirTienda(cart) {
   if (/restaurant|cocina|food|comida/.test(txt)) return 'Sector Restaurante';
   return 'Sector Automotriz'; 
 }
-
 checkoutForm.addEventListener('submit', (e) => {
   e.preventDefault();
 

@@ -61,7 +61,6 @@ h1, h2, h3 {
   }
 }
 
-
 .header {
   position: fixed;
   top: 0;
@@ -322,7 +321,6 @@ h1, h2, h3 {
   color: var(--primary);
 }
 
-
 .hero {
   position: relative;
   min-height: 100vh;
@@ -355,7 +353,6 @@ h1, h2, h3 {
     url("img/vehiculo.webp") center/cover no-repeat;
   transform: scale(1.08);
 }
-
 
 .hero-overlay {
   position: absolute;
@@ -463,7 +460,6 @@ h1, h2, h3 {
   margin: 0 auto 2rem;
   line-height: 1.6;
 }
-
 
 @media (min-width: 768px) {
   .hero-description {
@@ -597,7 +593,6 @@ h1, h2, h3 {
   }
 }
 
-
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -641,7 +636,6 @@ h1, h2, h3 {
     font-size: 1rem;
   }
 }
-
 
 .products-section {
   padding: 4rem 0;
@@ -784,7 +778,6 @@ h1, h2, h3 {
   object-position: center;
 }
 
-
 .product-card:hover .product-image img {
   transform: scale(1.08);
 }
@@ -864,7 +857,6 @@ h1, h2, h3 {
   display: inline-block;
 }
 
-/* ====== Meta del producto: código + botón Ficha Técnica ====== */
 .modal-product-meta {
   display: flex;
   align-items: center;
@@ -1540,7 +1532,6 @@ h1, h2, h3 {
   color: var(--primary);
 }
 
-
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1610,7 +1601,6 @@ h1, h2, h3 {
   flex: 1;
 }
 
-/* Product Modal */
 .product-modal-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1825,7 +1815,6 @@ h1, h2, h3 {
   text-decoration: line-through;
 }
 
-
 .size-iva {
   display: block;
   font-size: 0.6rem;
@@ -1840,7 +1829,6 @@ h1, h2, h3 {
   color: var(--primary);
   margin-top: 0.125rem;
 }
-
 
 .price-breakdown {
   background: var(--muted);
