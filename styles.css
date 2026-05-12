@@ -864,6 +864,43 @@ h1, h2, h3 {
   display: inline-block;
 }
 
+/* ====== Meta del producto: código + botón Ficha Técnica ====== */
+.modal-product-meta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: .25rem 0 .85rem;
+}
+.modal-product-code-chip {
+  font-size: 0.78rem;
+  color: var(--primary, #dc2626);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 0.75rem;
+  background: rgba(220, 38, 38, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+}
+.ficha-tecnica-btn {
+  font-size: 0.78rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 0.4rem 0.85rem;
+  background: #18181b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background .15s, transform .1s;
+  font-family: inherit;
+}
+.ficha-tecnica-btn:hover { background: #27272a; }
+.ficha-tecnica-btn:active { transform: scale(.97); }
+
 .cart-item-code {
   font-size: 0.65rem;
   color: var(--primary);

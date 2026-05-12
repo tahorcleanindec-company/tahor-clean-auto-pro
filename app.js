@@ -10,6 +10,7 @@ const products = [
   {
     id: 1,
     name: "Shampoo FOR CAR",
+    fichaTecnica: "fichas/shampoo-for-car.pdf",
     description: "Shampoo equilibrado que combina limpieza efectiva con cuidado de superficies, ideal para mantenimiento regular. pH 8.0",
     category: "Lavado",
     images: [
@@ -992,7 +993,16 @@ function renderProductModal() {
       <div class="product-modal-info">
         <span class="modal-product-category">${getCategoryLabel(p.category)}</span>
         <h2 class="modal-product-name">${p.name}</h2>
-        <p class="modal-product-code">Codigo: ${currentSize.code || 'N/A'}</p>
+        <div class="modal-product-meta">
+          <span class="modal-product-code-chip">CODIGO: ${currentSize.code || 'N/A'}</span>
+          <button type="button" class="ficha-tecnica-btn" onclick="abrirFichaTecnica(${p.id})" aria-label="Ver ficha técnica">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Ficha Tecnica
+          </button>
+        </div>
         <p class="modal-product-desc">${p.description}</p>
         
         <div class="modal-product-features">
@@ -1347,7 +1357,7 @@ function showVideo() {
   const mainImage = document.getElementById('mainImage');
 
   mainImage.innerHTML = `
-    <iframe 
+    <iframe
       src="${getEmbedUrl(selectedProduct.video)}?autoplay=1&mute=1"
       frameborder="0"
       allow="autoplay; encrypted-media"
@@ -1356,6 +1366,28 @@ function showVideo() {
     ></iframe>
   `;
 }
+
+// =============================================================
+// Ficha Técnica — abre el PDF en pestaña nueva
+//
+// Cada producto puede tener un campo opcional `fichaTecnica` con
+// la ruta a su PDF, ej: fichaTecnica: "fichas/shampoo-for-car.pdf"
+//
+// Si no tiene PDF, muestra un mensaje. Para activar un producto:
+//   1) Coloca el PDF en la carpeta /fichas/ del repo
+//   2) Agrega al producto: fichaTecnica: "fichas/nombre-del-archivo.pdf"
+// =============================================================
+function abrirFichaTecnica(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  if (product.fichaTecnica) {
+    window.open(product.fichaTecnica, '_blank', 'noopener,noreferrer');
+  } else {
+    alert(`📄 La ficha técnica de "${product.name}" estará disponible pronto.\n\nSi la necesitas urgente, contáctanos por WhatsApp.`);
+  }
+}
+window.abrirFichaTecnica = abrirFichaTecnica;
 
 
 
