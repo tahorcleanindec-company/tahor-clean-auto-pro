@@ -1195,7 +1195,7 @@ function deducirTienda(cart) {
   if (/vehic|auto|carro|moto/.test(txt))         return 'Sector Automotriz';
   if (/hospital|clinic|salud|medic/.test(txt))   return 'Sector Hospitales';
   if (/restaurant|cocina|food|comida/.test(txt)) return 'Sector Restaurante';
-  return 'Sector Automotriz'; // default
+  return 'Sector Automotriz'; 
 }
 
 checkoutForm.addEventListener('submit', (e) => {
@@ -1216,9 +1216,8 @@ checkoutForm.addEventListener('submit', (e) => {
   const subtotal = calculateSubtotal();
   const totalIva = calculateTotalIva();
   const total    = calculateTotal();
-  const cartSnapshot = [...cart]; // copia ANTES de limpiar
+  const cartSnapshot = [...cart]; 
 
-  // 1) ABRIR WHATSAPP PRIMERO (mientras existe gesto del usuario)
   let message = `*NUEVO PEDIDO - Tahor Clean*\n\n`;
   message += `*DATOS DEL CLIENTE*\n`;
   message += `Nombre: ${data.nombre}\nCedula: ${data.cedula}\n`;
