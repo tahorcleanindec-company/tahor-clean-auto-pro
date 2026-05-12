@@ -31,9 +31,6 @@ const products = [
     rating: 4.8,
     reviews: 124
   },
-  
- 
-
   { 
     id: 3,
     name: "Shampoo con Cera",
@@ -1367,16 +1364,6 @@ function showVideo() {
   `;
 }
 
-// =============================================================
-// Ficha Técnica — abre el PDF en pestaña nueva
-//
-// Cada producto puede tener un campo opcional `fichaTecnica` con
-// la ruta a su PDF, ej: fichaTecnica: "fichas/shampoo-for-car.pdf"
-//
-// Si no tiene PDF, muestra un mensaje. Para activar un producto:
-//   1) Coloca el PDF en la carpeta /fichas/ del repo
-//   2) Agrega al producto: fichaTecnica: "fichas/nombre-del-archivo.pdf"
-// =============================================================
 function abrirFichaTecnica(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
