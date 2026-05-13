@@ -5,12 +5,11 @@ const supa = window.supabase.createClient(
 
 const IVA_POR_DEFECTO = 0.15; 
 
-
 const products = [
   {
     id: 1,
     name: "Shampoo FOR CAR",
-    fichaTecnica: "fichas/shampoo-for-car.pdf",
+    fichaTecnica: "fichas/Ficha Tecnica Shampoo For Cars.pdf",
     description: "Shampoo equilibrado que combina limpieza efectiva con cuidado de superficies, ideal para mantenimiento regular. pH 8.0",
     category: "Lavado",
     images: [
@@ -31,12 +30,28 @@ const products = [
     rating: 4.8,
     reviews: 124
   },
-  
- 
+   {
+    id: 2,
+    name: "Shampoo Premiun",
+    description: "Shampoo automotriz formulado para limpieza diaria, elimina suciedad ligera sin afectar pintura ni acabados. pH 7.0",
+    category: "Lavado",
+    images: [
+      "",
+    ],
+    video: "",
+    features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
+    sizes: [
+      { name: "Caneca 20", code: "63506", price: 15, icon: "🛢️", iva: 0.15 },
+      { name: "Caneca 28", code: "63226", price: 19, icon: "🛢️", iva: 0.15 }
 
+    ],
+    rating: 4.9,
+    reviews: 89
+  },
   { 
     id: 3,
     name: "Shampoo con Cera",
+    fichaTecnica: "fichas/Shampoo con Cera.pdf",
     description: "Shampoo automotriz con cera incorporada que limpia profundamente mientras deja una capa protectora brillante sobre la pintura. Ideal para mantener el vehículo limpio y con acabado profesional en cada lavado. pH 7.5",
     category: "Lavado",
     images: [
@@ -57,6 +72,7 @@ const products = [
   { 
     id: 4,
     name: "Desengrasante deter plus",
+    fichaTecnica: "fichas/Desengrasante deter plus.pdf",
     description: "Shampoo desengrasante de alta potencia diseñado para eliminar grasa, barro y suciedad acumulada en vehículos. Ideal para lavados intensivos y vehículos con alta exposición. pH 10",
     category: "Lavado",
     images: [
@@ -78,6 +94,7 @@ const products = [
   {
      id: 5,                           
      name: "Tahor Wash R",
+     fichaTecnica: "fichas/Tahor Wash R.pdf",
      description: "Producto profesional desarrollado para la limpieza, restauración y protección de vehículos. Su formulación permite eliminar suciedad, grasa y contaminantes sin dañar superficies, logrando resultados de alto nivel en menos tiempo, alta espuma. pH 8.5",
      category: "Lavado",           
      images: [
@@ -97,6 +114,7 @@ const products = [
    {
      id: 6,                           
      name: "Lavaclean",
+     fichaTecnica: "fichas/Lavaclean.pdf",
      description: "Desengrasante alcalino de alto rendimiento diseñado para eliminar grasa pesada, aceites y suciedad extrema en motores, chasis y maquinaria.",
      category: "Limpieza Extrema",           
      images: [
@@ -118,6 +136,7 @@ const products = [
    {
      id: 7,                           
      name: "Deter 100 Industrial",
+     fichaTecnica: "fichas/Deter 100 Industrial.pdf",
      description: "Producto alcalino fuerte para limpieza de suciedad extrema en vehículos y maquinaria.",
      category: "Limpieza Extrema",           
      images: [
@@ -138,6 +157,7 @@ const products = [
    {
      id: 8,                           
      name: "Deter 100 pro",
+     fichaTecnica: "fichas/Deter 100 pro.pdf",
      description: "Desengrasante de alto rendimiento para eliminar aceites, grasa y suciedad difícil.",
      category: "Limpieza Extrema",           
      images: [
@@ -157,6 +177,7 @@ const products = [
    {
      id: 9,                           
      name: "Deter super industrial",
+     fichaTecnica: "fichas/Deter super industrial.pdf",
      description: "Formulación de máxima potencia para suciedad extremadamente adherida.",
      category: "Limpieza Extrema",           
      images: [
@@ -176,6 +197,7 @@ const products = [
    {
      id: 10,                           
      name: "Desoxidante",
+     fichaTecnica: "fichas/Desoxidante.pdf",
      description: "Elimina óxido y manchas metálicas devolviendo el aspecto original.",
      category: "Limpieza Extrema",           
      images: [
@@ -197,6 +219,7 @@ const products = [
    {
      id: 11,                           
      name: "Tahox 100 desincrustante",
+     fichaTecnica: "fichas/Tahox 100 desincrustante.pdf",
      description: "Elimina sarro, minerales y residuos incrustados en superficies del vehículo.",
      category: "Limpieza Extrema",           
      images: [
@@ -219,6 +242,7 @@ const products = [
    {
      id: 12,                           
      name: "Tahox solvent",
+     fichaTecnica: "fichas/Tahox solvent.pdf",
      description: "Remueve grasas, aceites y residuos difíciles que no salen con detergentes convencionales.",
      category: "Limpieza Extrema",           
      images: [
@@ -240,6 +264,7 @@ const products = [
    {
      id: 13,                           
      name: "Limpiador de Rines",
+     fichaTecnica: "fichas/Limpiador de Rines.pdf",
      description: "Elimina polvo de freno y suciedad adherida en rines.",
      category: "Limpieza Extrema",           
      images: [
@@ -259,6 +284,7 @@ const products = [
    {
      id: 14,                           
      name: "Intahor",
+     fichaTecnica: "fichas/Intahor.pdf",
      description: "Limpiador multiusos para interiores de vehículos. Remueve suciedad en tapicería, plásticos y paneles sin dañar superficies.",
      category: "Limpieza Interior",          
      images: [
@@ -280,6 +306,7 @@ const products = [
    {
      id: 15,                           
      name: "Deter Bio",
+     fichaTecnica: "fichas/Deter Bio.pdf",
      description: "Detergente biodegradable para limpieza interior segura.",
      category: "Limpieza Interior",           
      images: [
@@ -301,6 +328,7 @@ const products = [
     {
      id: 16,                           
      name: "Detergente Oxigenado",
+      fichaTecnica: "fichas/Detergente Oxigenado.pdf",
      description: "Elimina manchas orgánicas y suciedad en tapicería.",
      category: "Limpieza Interior",           
      images: [
@@ -324,6 +352,7 @@ const products = [
    {
      id: 17,                           
      name: "Dioxigen Multiusos",
+      fichaTecnica: "fichas/Dioxigen Multiusos.pdf",
      description: "Limpia y desinfecta el interior del vehículo eliminando microorganismos.",
      category: "Limpieza Interior",           
      images: [
@@ -346,6 +375,7 @@ const products = [
    {
      id: 18,                           
      name: "Brillantex",
+      fichaTecnica: "fichas/Brillantex.pdf",
      description: "Devuelve el color negro intenso a las llantas.",
      category: "Acabado y protección",           
      images: [
@@ -368,6 +398,7 @@ const products = [
    {
      id: 19,                          
      name: "Silicon de Motores",
+     fichaTecnica: "fichas/Silicon de Motores.pdf",
      description: "Protege motores contra polvo y humedad.",
      category: "Acabado y protección",           
      images: [
@@ -387,6 +418,7 @@ const products = [
    {
      id: 20,                           
      name: "Restaurador de plastico",
+      fichaTecnica: "fichas/Restaurador de plastico.pdf",
      description: "Recupera el color original de plásticos deteriorados.",
      category: "Acabado y protección",           
      images: [
@@ -410,6 +442,7 @@ const products = [
    {
      id: 21,                           
      name: "Ducha  Grafitada",
+      fichaTecnica: "fichas/Ducha Grafitada.pdf",
      description: "Mejora la visibilidad al repeler agua.",
      category: "Acabado y protección",           
      images: [
@@ -432,6 +465,7 @@ const products = [
    {
      id: 22,                           
      name: "Protector tc (WD40)",
+      fichaTecnica: "fichas/Protector tc.pdf",
      description: "Protege superficies contra desgaste y suciedad.",
      category: "Acabado y protección",           
      images: [
@@ -454,6 +488,7 @@ const products = [
    {
      id: 23,                           
      name: "Brillantex Full",
+      fichaTecnica: "fichas/Brillantex Full.pdf",
      description: "Brillo general para exteriores del vehículo.",
      category: "Acabado y protección",          
      images: [
@@ -476,6 +511,7 @@ const products = [
    {
      id: 24,                           
      name: "Ambiental Desinfectante ",
+      fichaTecnica: "fichas/Ambiental Desinfectante.pdf",
      description: "Aroma con acción desinfectante para el interior del vehículo.",
      category: "Ambientación",           
      images: [
@@ -497,6 +533,7 @@ const products = [
    {
      id: 25,                           
      name: "Splash Esencia",
+      fichaTecnica: "fichas/Splash Esencia.pdf",
      description: "Fragancia duaradera para el interior del vehículo.",
      category: "Ambientación",           
      images: [
@@ -518,6 +555,7 @@ const products = [
    {
      id: 27,                           
      name: "Cera autobrillante 1,2,3",
+      fichaTecnica: "fichas/Cera autobrillante 1,2,3.pdf",
      description: "Compuesto de corte diseñado para eliminar rayones leves, marcas, oxidación y defectos en la pintura. Prepara la superficie para procesos de pulido y acabado, logrando una base uniforme.",
      category: "Acabado y protección",           
      images: [
@@ -539,6 +577,7 @@ const products = [
    {
      id: 28,                           
      name: "EXTRACTOR",
+      fichaTecnica: "fichas/EXTRACTOR.pdf",
      description: "Xtractor elimina suciedad y manchas difíciles en minutos, sin saturar la tela ni dejar residuos.",
      category: "Limpieza Interior",           
      images: [
@@ -553,6 +592,26 @@ const products = [
        { name: "Botella 1L", code: "59306", price: 1.75, icon: "🍶", iva: 0.15 },
        { name: "Galon 4L", code: "55569", price: 4.99, icon: "🫙", iva: 0.15 },
        { name: "Caneca 20L", code: "62286", price: 19.9, icon: "🛢️", iva: 0.15 }
+     ],
+     rating: 4.5,
+     reviews: 0
+   },
+   {
+     id: 33,                           
+     name: "Silicon T7",
+      fichaTecnica: "fichas/Silicon T7.pdf",
+     description: " Protección y brillo para plásticos y superficies.",
+     category: "Acabado y protección",           
+     images: [
+       "img/Silicon  T7 gl.webp",
+        "img/Silicon  T7.webp"
+     ],
+     video: "url-video-youtube",
+     features: ["Protección UV ", "Brillo uniforme ", "No deja residuos grasos ", "Uso interior/exterior ", "Prolonga vida útil "],
+     sizes: [
+       
+       { name: "Galon ", code: "", price: 11.3, icon: "🫙", iva: 0.15 },
+       { name: "Caneca ", code: "", price: 44.25, icon: "🛢️", iva: 0.15 }
      ],
      rating: 4.5,
      reviews: 0
@@ -608,29 +667,10 @@ const products = [
      rating: 4.5,
      reviews: 0
    }, 
-   {
-     id: 33,                           
-     name: "Silicon T7",
-     description: " Protección y brillo para plásticos y superficies.",
-     category: "Acabado y protección",           
-     images: [
-       "img/Silicon  T7 gl.webp",
-        "img/Silicon  T7.webp"
-     ],
-     video: "url-video-youtube",
-     features: ["Protección UV ", "Brillo uniforme ", "No deja residuos grasos ", "Uso interior/exterior ", "Prolonga vida útil "],
-     sizes: [
-       
-       { name: "Galon ", code: "", price: 11.3, icon: "🫙", iva: 0.15 },
-       { name: "Caneca ", code: "", price: 44.25, icon: "🛢️", iva: 0.15 }
-     ],
-     rating: 4.5,
-     reviews: 0
-   }, 
+    
    
    
 ];
-
 
 let cart = [];
 let currentCategory = 'todos';
@@ -681,8 +721,6 @@ function formatPrice(price) {
   }).format(price);
 }
 
-
-
 function getCategoryLabel(category) {
   const labels = {
     shampoo: 'Shampoo',
@@ -707,7 +745,6 @@ function getPriceWithIva(price, ivaRate) {
 function getIvaAmount(price, ivaRate) {
   return round2(Number(price) * ivaRate);
 }
-
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
@@ -751,8 +788,6 @@ function calculateTotal() {
     return sum + (totalItem * item.quantity);
   }, 0));
 }
-
-
 
 function renderCart() {
   if (cart.length === 0) {
@@ -846,7 +881,6 @@ function addToCart(product, sizeIndex, qty) {
   renderCart();
   openCart();
 }
-
 
 function updateCartQuantity(index, delta) {
   cart[index].quantity += delta;
@@ -1198,9 +1232,8 @@ function deducirTienda(cart) {
   if (/vehic|auto|carro|moto/.test(txt))         return 'Sector Automotriz';
   if (/hospital|clinic|salud|medic/.test(txt))   return 'Sector Hospitales';
   if (/restaurant|cocina|food|comida/.test(txt)) return 'Sector Restaurante';
-  return 'Sector Automotriz'; // default
+  return 'Sector Automotriz'; 
 }
-
 checkoutForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -1219,9 +1252,8 @@ checkoutForm.addEventListener('submit', (e) => {
   const subtotal = calculateSubtotal();
   const totalIva = calculateTotalIva();
   const total    = calculateTotal();
-  const cartSnapshot = [...cart]; // copia ANTES de limpiar
+  const cartSnapshot = [...cart]; 
 
-  // 1) ABRIR WHATSAPP PRIMERO (mientras existe gesto del usuario)
   let message = `*NUEVO PEDIDO - Tahor Clean*\n\n`;
   message += `*DATOS DEL CLIENTE*\n`;
   message += `Nombre: ${data.nombre}\nCedula: ${data.cedula}\n`;
@@ -1367,16 +1399,6 @@ function showVideo() {
   `;
 }
 
-// =============================================================
-// Ficha Técnica — abre el PDF en pestaña nueva
-//
-// Cada producto puede tener un campo opcional `fichaTecnica` con
-// la ruta a su PDF, ej: fichaTecnica: "fichas/shampoo-for-car.pdf"
-//
-// Si no tiene PDF, muestra un mensaje. Para activar un producto:
-//   1) Coloca el PDF en la carpeta /fichas/ del repo
-//   2) Agrega al producto: fichaTecnica: "fichas/nombre-del-archivo.pdf"
-// =============================================================
 function abrirFichaTecnica(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
