@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: "Shampoo FOR CAR",
-    fichaTecnica: "fichas/shampoo-for-car.pdf",
+    fichaTecnica: "fichas/Ficha Tecnica Shampoo For Cars.pdf",
     description: "Shampoo equilibrado que combina limpieza efectiva con cuidado de superficies, ideal para mantenimiento regular. pH 8.0",
     category: "Lavado",
     images: [
@@ -32,11 +32,11 @@ const products = [
   },
    {
     id: 2,
-    name: "Shampoo EC",
+    name: "Shampoo Premiun",
     description: "Shampoo automotriz formulado para limpieza diaria, elimina suciedad ligera sin afectar pintura ni acabados. pH 7.0",
     category: "Lavado",
     images: [
-      "img/SHAMPOO PARA AUTO ECONOMICO 20L.webp",
+      "",
     ],
     video: "",
     features: ["Limpieza suave y segura ", "No daña pintura ni plásticos ", "Ideal para uso frecuente ", "Fácil enjuague", "Uso doméstico y profesional"],
@@ -51,6 +51,7 @@ const products = [
   { 
     id: 3,
     name: "Shampoo con Cera",
+    fichaTecnica: "fichas/Shampoo con Cera.pdf",
     description: "Shampoo automotriz con cera incorporada que limpia profundamente mientras deja una capa protectora brillante sobre la pintura. Ideal para mantener el vehículo limpio y con acabado profesional en cada lavado. pH 7.5",
     category: "Lavado",
     images: [
@@ -71,6 +72,7 @@ const products = [
   { 
     id: 4,
     name: "Desengrasante deter plus",
+    fichaTecnica: "fichas/Desengrasante deter plus.pdf",
     description: "Shampoo desengrasante de alta potencia diseñado para eliminar grasa, barro y suciedad acumulada en vehículos. Ideal para lavados intensivos y vehículos con alta exposición. pH 10",
     category: "Lavado",
     images: [
@@ -92,6 +94,7 @@ const products = [
   {
      id: 5,                           
      name: "Tahor Wash R",
+     fichaTecnica: "fichas/Tahor Wash R.pdf",
      description: "Producto profesional desarrollado para la limpieza, restauración y protección de vehículos. Su formulación permite eliminar suciedad, grasa y contaminantes sin dañar superficies, logrando resultados de alto nivel en menos tiempo, alta espuma. pH 8.5",
      category: "Lavado",           
      images: [
@@ -111,6 +114,7 @@ const products = [
    {
      id: 6,                           
      name: "Lavaclean",
+     fichaTecnica: "fichas/Lavaclean.pdf",
      description: "Desengrasante alcalino de alto rendimiento diseñado para eliminar grasa pesada, aceites y suciedad extrema en motores, chasis y maquinaria.",
      category: "Limpieza Extrema",           
      images: [
@@ -132,6 +136,7 @@ const products = [
    {
      id: 7,                           
      name: "Deter 100 Industrial",
+     fichaTecnica: "fichas/Deter 100 Industrial.pdf",
      description: "Producto alcalino fuerte para limpieza de suciedad extrema en vehículos y maquinaria.",
      category: "Limpieza Extrema",           
      images: [
@@ -152,6 +157,7 @@ const products = [
    {
      id: 8,                           
      name: "Deter 100 pro",
+     fichaTecnica: "fichas/Deter 100 pro.pdf",
      description: "Desengrasante de alto rendimiento para eliminar aceites, grasa y suciedad difícil.",
      category: "Limpieza Extrema",           
      images: [
@@ -171,6 +177,7 @@ const products = [
    {
      id: 9,                           
      name: "Deter super industrial",
+     fichaTecnica: "fichas/Deter super industrial.pdf",
      description: "Formulación de máxima potencia para suciedad extremadamente adherida.",
      category: "Limpieza Extrema",           
      images: [
@@ -190,6 +197,7 @@ const products = [
    {
      id: 10,                           
      name: "Desoxidante",
+     fichaTecnica: "fichas/Desoxidante.pdf",
      description: "Elimina óxido y manchas metálicas devolviendo el aspecto original.",
      category: "Limpieza Extrema",           
      images: [
@@ -211,6 +219,7 @@ const products = [
    {
      id: 11,                           
      name: "Tahox 100 desincrustante",
+     fichaTecnica: "fichas/Tahox 100 desincrustante.pdf",
      description: "Elimina sarro, minerales y residuos incrustados en superficies del vehículo.",
      category: "Limpieza Extrema",           
      images: [
@@ -233,6 +242,7 @@ const products = [
    {
      id: 12,                           
      name: "Tahox solvent",
+     fichaTecnica: "fichas/Tahox solvent.pdf",
      description: "Remueve grasas, aceites y residuos difíciles que no salen con detergentes convencionales.",
      category: "Limpieza Extrema",           
      images: [
@@ -254,6 +264,7 @@ const products = [
    {
      id: 13,                           
      name: "Limpiador de Rines",
+     fichaTecnica: "fichas/Limpiador de Rines.pdf",
      description: "Elimina polvo de freno y suciedad adherida en rines.",
      category: "Limpieza Extrema",           
      images: [
@@ -273,6 +284,7 @@ const products = [
    {
      id: 14,                           
      name: "Intahor",
+     fichaTecnica: "fichas/Intahor.pdf",
      description: "Limpiador multiusos para interiores de vehículos. Remueve suciedad en tapicería, plásticos y paneles sin dañar superficies.",
      category: "Limpieza Interior",          
      images: [
@@ -294,6 +306,7 @@ const products = [
    {
      id: 15,                           
      name: "Deter Bio",
+     fichaTecnica: "fichas/Deter Bio.pdf",
      description: "Detergente biodegradable para limpieza interior segura.",
      category: "Limpieza Interior",           
      images: [
@@ -315,6 +328,7 @@ const products = [
     {
      id: 16,                           
      name: "Detergente Oxigenado",
+      fichaTecnica: "fichas/Detergente Oxigenado.pdf",
      description: "Elimina manchas orgánicas y suciedad en tapicería.",
      category: "Limpieza Interior",           
      images: [
@@ -338,6 +352,7 @@ const products = [
    {
      id: 17,                           
      name: "Dioxigen Multiusos",
+      fichaTecnica: "fichas/Dioxigen Multiusos.pdf",
      description: "Limpia y desinfecta el interior del vehículo eliminando microorganismos.",
      category: "Limpieza Interior",           
      images: [
@@ -360,6 +375,7 @@ const products = [
    {
      id: 18,                           
      name: "Brillantex",
+      fichaTecnica: "fichas/Brillantex.pdf",
      description: "Devuelve el color negro intenso a las llantas.",
      category: "Acabado y protección",           
      images: [
@@ -382,6 +398,7 @@ const products = [
    {
      id: 19,                          
      name: "Silicon de Motores",
+     fichaTecnica: "fichas/Silicon de Motores.pdf",
      description: "Protege motores contra polvo y humedad.",
      category: "Acabado y protección",           
      images: [
@@ -401,6 +418,7 @@ const products = [
    {
      id: 20,                           
      name: "Restaurador de plastico",
+      fichaTecnica: "fichas/Restaurador de plastico.pdf",
      description: "Recupera el color original de plásticos deteriorados.",
      category: "Acabado y protección",           
      images: [
@@ -424,6 +442,7 @@ const products = [
    {
      id: 21,                           
      name: "Ducha  Grafitada",
+      fichaTecnica: "fichas/Ducha Grafitada.pdf",
      description: "Mejora la visibilidad al repeler agua.",
      category: "Acabado y protección",           
      images: [
@@ -446,6 +465,7 @@ const products = [
    {
      id: 22,                           
      name: "Protector tc (WD40)",
+      fichaTecnica: "fichas/Protector tc.pdf",
      description: "Protege superficies contra desgaste y suciedad.",
      category: "Acabado y protección",           
      images: [
@@ -468,6 +488,7 @@ const products = [
    {
      id: 23,                           
      name: "Brillantex Full",
+      fichaTecnica: "fichas/Brillantex Full.pdf",
      description: "Brillo general para exteriores del vehículo.",
      category: "Acabado y protección",          
      images: [
@@ -490,6 +511,7 @@ const products = [
    {
      id: 24,                           
      name: "Ambiental Desinfectante ",
+      fichaTecnica: "fichas/Ambiental Desinfectante.pdf",
      description: "Aroma con acción desinfectante para el interior del vehículo.",
      category: "Ambientación",           
      images: [
@@ -511,6 +533,7 @@ const products = [
    {
      id: 25,                           
      name: "Splash Esencia",
+      fichaTecnica: "fichas/Splash Esencia.pdf",
      description: "Fragancia duaradera para el interior del vehículo.",
      category: "Ambientación",           
      images: [
@@ -532,6 +555,7 @@ const products = [
    {
      id: 27,                           
      name: "Cera autobrillante 1,2,3",
+      fichaTecnica: "fichas/Cera autobrillante 1,2,3.pdf",
      description: "Compuesto de corte diseñado para eliminar rayones leves, marcas, oxidación y defectos en la pintura. Prepara la superficie para procesos de pulido y acabado, logrando una base uniforme.",
      category: "Acabado y protección",           
      images: [
@@ -553,6 +577,7 @@ const products = [
    {
      id: 28,                           
      name: "EXTRACTOR",
+      fichaTecnica: "fichas/EXTRACTOR.pdf",
      description: "Xtractor elimina suciedad y manchas difíciles en minutos, sin saturar la tela ni dejar residuos.",
      category: "Limpieza Interior",           
      images: [
@@ -574,6 +599,7 @@ const products = [
    {
      id: 33,                           
      name: "Silicon T7",
+      fichaTecnica: "fichas/Silicon T7.pdf",
      description: " Protección y brillo para plásticos y superficies.",
      category: "Acabado y protección",           
      images: [
